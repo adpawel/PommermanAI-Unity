@@ -155,9 +155,6 @@ public class PommermanAgent : Agent
         }
         // ==========================================
 
-        // Usuniêcie obiektu gracza
-        //if(gameObject != null)
-        //    Destroy(gameObject);
     }
 
     // Funkcja pomocnicza do stawiania bomby
