@@ -14,7 +14,9 @@ Dwóch agentów rywalizuje na generowanej planszy, ucząc się zachowań ofensyw
 | Unity | **2022.3 LTS** | Projekt testowany na 2022.3.x |
 | Python | **3.10+** | Wymagany do ML-Agents |
 | Conda / Miniconda | Dowolna aktualna wersja | Do izolacji środowiska |
-| Git | opcjonalnie | Jeśli klonujesz repozytorium |
+| Visual Studio 2022 | Community / Professional	| Wymagane do kompilacji skryptów C# w Unity (zaznacz komponent Game development with Unity) |
+| JetBrains Rider	(zamiennie dla Visual Studio) | 2024+ | Alternatywny IDE dla Unity, w pełni wspiera C# i integrację z Unity Editor |
+| Unity Package: ML-Agents	| | Upewnij się, że jest zainstalowany w projekcie (com.unity.ml-agents) w Package Manager |
 
 ---
 
