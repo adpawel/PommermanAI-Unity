@@ -47,7 +47,7 @@ Dwóch agentów rywalizuje na generowanej planszy, ucząc się zachowań ofensyw
 
     W terminalu wpisz:
 
-    mlagents-learn pommerman_config.yaml --run-id=PommermanRun --time-scale=10
+    mlagents-learn pommerman_config.yaml --run-id=Pommerman_1v1_Final --force --time-scale=2.0 --no-graphics
 
     W Unity kliknij Play ▶️
 
