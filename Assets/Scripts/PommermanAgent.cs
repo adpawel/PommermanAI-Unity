@@ -9,6 +9,8 @@ public class PommermanAgent : Agent
     public float moveSpeed = 5f;
     private Vector3 targetPosition;
     private bool isMoving = false;
+    public Vector3 startPosition;
+    public int agentIndexPublic = 0;
 
     [Header("Gameplay Settings")]
     public GameObject bombPrefab;
@@ -27,6 +29,8 @@ public class PommermanAgent : Agent
 
     private const float MOVE_REWARD = 0.001f;
     private const float WALL_HIT_PENALTY = -0.005f;
+
+    private const int MAX_EPISODE_STEPS = 1000;
 
     void Start()
     {
@@ -61,26 +65,41 @@ public class PommermanAgent : Agent
         }
         // W ka¿dym kroku (nawet jeœli stoi): nagroda za przetrwanie.
         AddReward(MOVE_REWARD);
+        if (StepCount >= MAX_EPISODE_STEPS)
+        {
+            // Neutralna nagroda (0.0f), poniewa¿ nie wygra³ ani nie przegra³, po prostu skoñczy³ czas.
+            //AddReward(-2.0f);
+            EndEpisode();
+        }
     }
 
-    // === 1. ZBIERANIE OBSERWACJI (INPUT DLA AI) ===
-    public override void CollectObservations(VectorSensor sensor)
+    public override void CollectObservations(VectorSensor sensor)
     {
-        //Debug.Log($"CollectObservations called on {gameObject.name}");
-        // Na pocz¹tek dodajemy minimalne, wektorowe obserwacje:
-        // 1. Pozycja X i Z (2)
-        // 2. Czy agent siê aktualnie porusza (1)
-        // Razem: 3 floaty
-        if (transform != null) // Zabezpieczenie przed usuniêtym obiektem
-        {
-            sensor.AddObservation(transform.localPosition.x);
-            sensor.AddObservation(transform.localPosition.z);
-            sensor.AddObservation(isMoving);
+        // 3 obserwacje: normalizowana pozycja X, normalizowana pozycja Z, flaga isMoving
+        float obsX = 0f;
+        float obsZ = 0f;
+
+        // Normalizujemy pozycjê wzglêdem po³owy rozmiaru planszy (zakres przybli¿ony do [-1, 1])
+        if (arenaManager != null)
+        {
+            float half = Mathf.Max(1f, arenaManager.size / 2f); // zabezpieczenie przed dzieleniem przez 0
+            obsX = Mathf.Clamp(transform.localPosition.x / half, -1f, 1f);
+            obsZ = Mathf.Clamp(transform.localPosition.z / half, -1f, 1f);
+        }
+        else
+        {
+            // Fallback — je¿eli arenaManager nie jest ustawiony, u¿ywamy niewielkiej normalizacji
+            obsX = Mathf.Clamp(transform.localPosition.x / 10f, -1f, 1f);
+            obsZ = Mathf.Clamp(transform.localPosition.z / 10f, -1f, 1f);
         }
 
-        // TODO: W przysz³oœci dodaj tutaj 'widzenie planszy' (Grid Sensor lub Ray Perception)
-        // np. odleg³oœæ do najbli¿szego przeciwnika/muru.
-    }
+        sensor.AddObservation(obsX);                 // 1: normalizowana pozycja X
+        sensor.AddObservation(obsZ);                 // 2: normalizowana pozycja Z
+        sensor.AddObservation(isMoving ? 1f : 0f);   // 3: czy agent siê porusza (0/1)
+        sensor.AddObservation(canPlaceBomb ? 1f : 0f);
+        sensor.AddObservation(agentIndex / 1f);
+    }
+
 
     // === 2. ODBIÓR AKCJI OD AI (DECYZJI) ===
     public override void OnActionReceived(ActionBuffers actions)
@@ -117,7 +136,7 @@ public class PommermanAgent : Agent
                     targetPosition = newTargetPosition;
                     isMoving = true;
                     // Nagradzaj za pomyœlny ruch
-                    AddReward(0.002f);
+                    AddReward(MOVE_REWARD);
                 }
                 else
                 {
@@ -128,19 +147,38 @@ public class PommermanAgent : Agent
         }
     }
 
-    // === 3. RESET EPIZODU ===
-    public override void OnEpisodeBegin()
+    // === 3. RESET EPIZODU ===
+    public override void OnEpisodeBegin()
     {
+        // Reset podstawowych flag
+        //isAlive = true;
+        //canPlaceBomb = true;
+        //isMoving = false;
+
+        //// Jeœli ArenaManager potrafi zwróciæ pozycjê startow¹, u¿yj jej, 
+        //// w przeciwnym razie u¿yj startPosition ustawionego przez ArenaManager przy tworzeniu.
+        //if (arenaManager != null)
+        //{
+        //    // jeœli masz metodê w ArenaManager: GetSpawnPositionForAgent(agentIndex) -> u¿yj jej
+        //    // otherwise use startPosition field
+        //    Vector3 spawn = startPosition;
+        //    transform.position = new Vector3(Mathf.Round(spawn.x), transform.position.y, Mathf.Round(spawn.z));
+        //}
+        //else
+        //{
+        //    // fallback: round current position
+        //    transform.position = new Vector3(Mathf.Round(transform.position.x), transform.position.y, Mathf.Round(transform.position.z));
+        //    transform.position = new Vector3(Mathf.Round(transform.position.x), transform.position.y, Mathf.Round(transform.position.z));
+        //}
+        //targetPosition = transform.position;
     }
 
 
     // Metoda Die() jest teraz kluczowa dla RL
     public void Die()
     {
-        // Du¿a kara za œmieræ
-        SetReward(-1.0f);
         //Debug.Log(gameObject.name + " zgin¹³! Epizod dla tego agenta zakoñczony.");
-
+        AddReward(-1.0f);
         // Zakoñcz epizod DLA TEGO AGENTA
         EndEpisode();
 
@@ -157,14 +195,10 @@ public class PommermanAgent : Agent
 
     }
 
-    // Funkcja pomocnicza do stawiania bomby
-    private void PlaceBomb()
+    // Funkcja pomocnicza do stawiania bomby
+    private void PlaceBomb()
     {
-        if (!canPlaceBomb)
-        {
-            return;
-        }
-
+        if (!canPlaceBomb) return;
 
         if (bombPrefab != null)
         {
@@ -176,10 +210,51 @@ public class PommermanAgent : Agent
             {
                 // Przekazujemy referencjê do agenta, aby bomba mog³a go powiadomiæ
                 bombScript.SetOwner(this);
-            }
 
-            AddReward(0.01f); // Nagroda za podjêcie ryzykownej akcji
-        }
+                bool targetFound = CheckForTargetWalls(transform.position, bombScript.blastRadius);
+                if (targetFound)
+                {
+                    AddReward(0.1f); // Œrednia nagroda za DOBRE umieszczenie bomby
+                }
+                //else
+                //{
+                //    AddReward(0.02f); // Ma³a nagroda za samo postawienie bomby
+                //}
+            }
+            else
+            {
+                // Jeœli nie znaleziono skryptu bomby, przyznaj minimaln¹ nagrodê (unikamy crashu)
+                AddReward(0.005f);
+            }
+        }
+    }
+
+
+    private bool CheckForTargetWalls(Vector3 bombCenter, int radius)
+    {
+        int mask = LayerMask.GetMask("WallBreakable");
+
+        Vector3[] directions = { Vector3.forward, Vector3.back, Vector3.right, Vector3.left };
+
+        foreach (Vector3 dir in directions)
+        {
+            for (int i = 1; i <= radius; i++)
+            {
+                Vector3 checkPos = bombCenter + dir * i;
+                Collider[] colliders = Physics.OverlapBox(
+                    new Vector3(Mathf.Round(checkPos.x), 0.5f, Mathf.Round(checkPos.z)),
+                    new Vector3(0.45f, 0.45f, 0.45f),
+                    Quaternion.identity,
+                    mask
+                );
+
+                if (colliders.Length > 0)
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     public void NotifyBombExploded()
@@ -227,4 +302,16 @@ public class PommermanAgent : Agent
     {
         this.arenaManager = manager;
     }
+
+    public void SetAgentIndex(int idx)
+    {
+        agentIndex = idx;
+        agentIndexPublic = idx;
+    }
+
+    public void SetStartPosition(Vector3 pos)
+    {
+        startPosition = pos;
+    }
+
 }

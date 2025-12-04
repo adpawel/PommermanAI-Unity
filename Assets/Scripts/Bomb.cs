@@ -9,11 +9,16 @@ public class Bomb : MonoBehaviour
     public GameObject explosionPrefab; // Wizualny efekt wybuchu (stwórz go jako nowy Prefab)
     public LayerMask explosionMask;
     private PommermanAgent ownerAgent;
+    
+    private const float BLOCK_DESTROYED_REWARD = 3.0f;
+    private const float SUICIDE_PENALTY = -4.0f;
+    private const float KILL_OPPONENT_REWARD = 1.2f;
+    private const float WIN_REWARD = 3.0f;
 
     void Start()
     {
         // Rozpocznij odliczanie
-        explosionMask = LayerMask.GetMask("Player", "WallDestroyable", "WallSolid", "Destructible");
+        explosionMask = LayerMask.GetMask("Player", "WallBreakable", "WallSolid", "Destructible");
         StartCoroutine(DetonateAfterDelay());
     }
 
@@ -32,7 +37,7 @@ public class Bomb : MonoBehaviour
     void Explode()
     {
         Vector3 center = transform.position;
-        center.y = 0.6f; // Upewnij siê, ¿e promieñ jest na poziomie obiektów
+        center.y = 0.5f; // Upewnij siê, ¿e promieñ jest na poziomie obiektów
 
         CheckSinglePoint(center);
         // Sprawdzenie w 4 kierunkach (North, South, East, West)
@@ -67,6 +72,23 @@ public class Bomb : MonoBehaviour
                 PommermanAgent player = col.GetComponent<PommermanAgent>();
                 if (player != null)
                 {
+                    if (player != ownerAgent)
+                    {
+                        // === NAGRODA ZA ZABÓJSTWO ===
+                        if (ownerAgent != null)
+                        {
+                            ownerAgent.AddReward(KILL_OPPONENT_REWARD);
+                        }
+                    }
+                    else
+                    {
+                        // KARA ZA SAMOBÓJSTWO (opcjonalna, ale dobra)
+                        if (ownerAgent != null)
+                        {
+                            ownerAgent.AddReward(SUICIDE_PENALTY);
+                        }
+                    }
+
                     player.Die(); // Zabija gracza, jeœli stoi na bombie
                 }
             }
@@ -107,7 +129,24 @@ public class Bomb : MonoBehaviour
                 else if (col.CompareTag("WallBreakable"))
                 {
                     Destroy(col.gameObject); // Niszczy niszczalny mur
-                    hitSolid = true; // Zatrzymuje eksplozjê
+                    
+                    if (ownerAgent != null)
+                    {
+                        ownerAgent.AddReward(BLOCK_DESTROYED_REWARD); // NAGRODA ZA ZNISZCZENIE MURU
+                    }
+
+                    ArenaManager mgr = FindAnyObjectByType<ArenaManager>();
+                    if (mgr != null)
+                    {
+                        mgr.OnBreakableDestroyed(ownerAgent);
+                    }
+                    else
+                    {
+                        // Alternatywnie: spróbuj znaleŸæ inn¹ drog¹ (FindObjectOfType). Loguj dla debugu.
+                        Debug.LogWarning("ArenaManager not found when notifying breakable destruction.");
+                    }
+
+                    hitSolid = true; // Zatrzymuje eksplozjê
                     break;
                 }
                 else if (col.CompareTag("Player"))
@@ -115,6 +154,23 @@ public class Bomb : MonoBehaviour
                     PommermanAgent player = col.GetComponent<PommermanAgent>();
                     if (player != null)
                     {
+                        if (player != ownerAgent)
+                        {
+                            // === NAGRODA ZA ZABÓJSTWO ===
+                            if (ownerAgent != null)
+                            {
+                                ownerAgent.AddReward(KILL_OPPONENT_REWARD);
+                            }
+                        }
+                        else
+                        {
+                            // KARA ZA SAMOBÓJSTWO (opcjonalna, ale dobra)
+                            if (ownerAgent != null)
+                            {
+                                ownerAgent.AddReward(SUICIDE_PENALTY);
+                            }
+                        }
+
                         player.Die();
                     }
                 }

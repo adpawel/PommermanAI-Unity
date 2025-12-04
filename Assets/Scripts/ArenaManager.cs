@@ -14,6 +14,7 @@ public class ArenaManager : MonoBehaviour
     public GameObject wallBreakablePrefab;
     public GameObject playerPrefab;
     public Transform playersParent;
+    private int breakableCount = 0;
 
     // Pozycje startowe dla 2 agentów (używane do instancjonowania)
     private Vector3[] agentStartPositions;
@@ -47,7 +48,7 @@ public class ArenaManager : MonoBehaviour
             new Vector3(1 - offset, 0.5f, 1 - offset), 
 
             // Agent 2 (Prawy góra: x=size-2, z=size-2)
-            new Vector3(size - 2 - offset, 0.5f, size - 2 - offset)
+            //new Vector3(size - 2 - offset, 0.5f, size - 2 - offset)
         };
 
         // === Krok 2: Definicja SZEROKICH stref bezpieczeństwa (3x3 wokół startów) ===
@@ -107,6 +108,7 @@ public class ArenaManager : MonoBehaviour
                         if (Random.value < 0.5f)
                         {
                             Instantiate(wallBreakablePrefab, currentWallPos, Quaternion.identity, transform);
+                            breakableCount++;
                         }
                     }
                 }
@@ -122,24 +124,42 @@ public class ArenaManager : MonoBehaviour
             return;
         }
 
-        if(agentsAlive <= 1)
+        int createCount = agentStartPositions.Length;
+        for (int i = 0; i < createCount; i++)
         {
-            for (int i = 0; i < agentStartPositions.Length; i++)
+            Vector3 startPos = agentStartPositions[i];
+            GameObject newPlayer = Instantiate(playerPrefab, startPos, Quaternion.identity, playersParent);
+            newPlayer.name = "PommermanAgent_" + (i + 1);
+
+            PommermanAgent agentScript = newPlayer.GetComponent<PommermanAgent>();
+            if (agentScript != null)
             {
-                Vector3 startPos = agentStartPositions[i];
-
-                // Stwórz gracza na zdefiniowanej pozycji
-                GameObject newPlayer = Instantiate(playerPrefab, startPos, Quaternion.identity, playersParent);
-
-                newPlayer.name = "PommermanAgent_" + (i + 1);
-
-                PommermanAgent agentScript = newPlayer.GetComponent<PommermanAgent>();
-                if (agentScript != null)
-                {
-                    agentScript.SetArenaManager(this);
-                }
+                agentScript.SetArenaManager(this);
+                agentScript.SetAgentIndex(i);
+                agentScript.SetStartPosition(startPos);
             }
         }
+        agentsAlive = createCount;
+        ////if(agentsAlive <= 1)
+        ////{
+        //    //for (int i = 0; i < agentStartPositions.Length; i++)
+        //    for (int i = 0; i < 1; i++)
+        //    {
+        //        Vector3 startPos = agentStartPositions[i];
+
+        //        // Stwórz gracza na zdefiniowanej pozycji
+        //        GameObject newPlayer = Instantiate(playerPrefab, startPos, Quaternion.identity, playersParent);
+
+        //        newPlayer.name = "PommermanAgent_" + (i + 1);
+
+        //        PommermanAgent agentScript = newPlayer.GetComponent<PommermanAgent>();
+        //        if (agentScript != null)
+        //        {
+        //            agentScript.SetArenaManager(this);
+        //        }
+        //    }
+        //agentsAlive = 1;
+        ////}
     }
 
 
@@ -167,24 +187,66 @@ public class ArenaManager : MonoBehaviour
     public void OnAgentDied(MonoBehaviour agent)
     {
         if (!episodeInProgress) return;
-        agentsAlive--;
+        //agentsAlive--;
 
-        // Sprawdzamy, czy pozostał tylko jeden (zwycięzca) lub nikt (remis/samobójstwo)
-        if (agentsAlive <= 1)
-        {
-            // Opcjonalnie: Nagradzanie ostatniego żywego agenta
-            if (agentsAlive == 1)
-            {
-                // TODO: Znajdź i nagródź ostatniego żywego agenta
-            }
+        //// Sprawdzamy, czy pozostał tylko jeden (zwycięzca) lub nikt (remis/samobójstwo)
+        //if (agentsAlive <= 1)
+        //{
+        //    // Opcjonalnie: Nagradzanie ostatniego żywego agenta
+        //    if (agentsAlive == 1)
+        //    {
+        //        PommermanAgent winner = FindAnyObjectByType<PommermanAgent>();
+        //        if (winner != null)
+        //        {
+        //            // Duża, końcowa nagroda za zwycięstwo!
+        //            winner.SetReward(5.0f);
+        //            winner.EndEpisode();
+        //        }
+        //    }
             ResetEnvironment();
-        } 
-        else
+        //} 
+        //else
+        //{
+        //    DestroyImmediate(agent.gameObject);
+        //}
+    }
+
+    /// <summary>
+    /// Wywoływane, gdy zniszczono niszczalny wall. 
+    /// `owner` może być null (np. wybuch środowiskowy) — wtedy nie przyznajemy nagrody.
+    /// Jeśli to ostatni wall, przyznajemy nagrodę i restartujemy środowisko.
+    /// </summary>
+    public void OnBreakableDestroyed(PommermanAgent owner)
+    {
+        // zabezpieczenie
+        if (breakableCount <= 0)
         {
-            DestroyImmediate(agent.gameObject);
+            return;
+        }
+
+        breakableCount--;
+
+        // Debug
+        Debug.Log($"Breakable destroyed. Remaining: {breakableCount}");
+
+        if (breakableCount <= 0)
+        {
+            Debug.Log("All breakables destroyed! Awarding win...");
+
+            if (owner != null)
+            {
+                // używaj AddReward, a nie SetReward!
+                owner.AddReward(3.0f); // możesz tu użyć stałej WIN_REWARD, jeśli ją eksponujesz
+                owner.EndEpisode();
+            }
+
+            // Opcjonalnie: zakończ epizod dla wszystkich agentów i zresetuj środowisko
+            // jeśli chcesz aby jednocześnie zakończył się cały mecz:
+            ResetEnvironment();
         }
     }
-    
+
+
     void ResetEnvironment()
     {
         // === 1. Zabezpieczenie przed ponownym resetem ===
@@ -209,6 +271,7 @@ public class ArenaManager : MonoBehaviour
             if (child != transform)
                 Destroy(child.gameObject);
 
+        breakableCount = 0;
         Generate();
         InstantiatePlayers();
         agentsAlive = agentStartPositions.Length;
