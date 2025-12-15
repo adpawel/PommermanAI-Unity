@@ -1,10 +1,5 @@
-﻿using System.Collections.Generic; // Dodajemy dla zarządzania agentami
-
+﻿using System.Collections.Generic;
 using UnityEngine;
-
-using System.Collections;
-
-
 
 public class ArenaManager : MonoBehaviour
 {
@@ -15,6 +10,7 @@ public class ArenaManager : MonoBehaviour
     public GameObject playerPrefab;
     public Transform playersParent;
     private int breakableCount = 0;
+    public float cumulativeReward = 0;
 
     // Pozycje startowe dla 2 agentów (używane do instancjonowania)
     private Vector3[] agentStartPositions;
@@ -74,13 +70,8 @@ public class ArenaManager : MonoBehaviour
         }
     }
 
-
     void Generate()
     {
-        // Zniszcz stare obiekty przed generacją nowej planszy (dla przyszłego ResetEnvironment)
-        // Możesz użyć tego na początku Generate lub w oddzielnej funkcji ClearBoard()
-        // W tej chwili zakładamy, że jest to wywołane tylko w Start()
-        //ResetEnvironment();
         int halfSize = size / 2;
 
         for (int x = 0; x < size; x++)
@@ -203,7 +194,8 @@ public class ArenaManager : MonoBehaviour
         //            winner.EndEpisode();
         //        }
         //    }
-            ResetEnvironment();
+        //if (!resetScheduled) StartCoroutine(DelayedReset(0.05f));
+        ResetEnvironment();
         //} 
         //else
         //{
@@ -235,13 +227,11 @@ public class ArenaManager : MonoBehaviour
 
             if (owner != null)
             {
-                // używaj AddReward, a nie SetReward!
-                owner.AddReward(3.0f); // możesz tu użyć stałej WIN_REWARD, jeśli ją eksponujesz
+                print("Reward this round: " + owner.GetCumulativeReward());
+
                 owner.EndEpisode();
             }
 
-            // Opcjonalnie: zakończ epizod dla wszystkich agentów i zresetuj środowisko
-            // jeśli chcesz aby jednocześnie zakończył się cały mecz:
             ResetEnvironment();
         }
     }
@@ -249,20 +239,32 @@ public class ArenaManager : MonoBehaviour
 
     void ResetEnvironment()
     {
+        print("reset");
         // === 1. Zabezpieczenie przed ponownym resetem ===
         if (!episodeInProgress) return;
         episodeInProgress = false;
-
-        var bombs = FindObjectsByType<Bomb>(FindObjectsSortMode.None);
-        foreach (var bomb in bombs)
-            Destroy(bomb.gameObject);
 
         PommermanAgent[] agents = FindObjectsByType<PommermanAgent>(FindObjectsSortMode.None);
         foreach (PommermanAgent agent in agents)
         {
             if (agent != null)
             {
-                DestroyImmediate(agent.gameObject);
+                try {
+                    agent.EndEpisode();
+                } catch { }
+            }
+        }
+
+        var bombs = FindObjectsByType<Bomb>(FindObjectsSortMode.None);
+        foreach (var bomb in bombs)
+            Destroy(bomb.gameObject);
+
+        PommermanAgent[] agents1 = FindObjectsByType<PommermanAgent>(FindObjectsSortMode.None);
+        foreach (PommermanAgent agent in agents1)
+        {
+            if (agent != null)
+            {
+                Destroy(agent.gameObject);
             }
         }
 
@@ -272,6 +274,8 @@ public class ArenaManager : MonoBehaviour
                 Destroy(child.gameObject);
 
         breakableCount = 0;
+        cumulativeReward = 0;
+
         Generate();
         InstantiatePlayers();
         agentsAlive = agentStartPositions.Length;

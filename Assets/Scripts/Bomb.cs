@@ -4,21 +4,25 @@ using System.Collections;
 public class Bomb : MonoBehaviour
 {
     // Konfigurowalne parametry
-    public float fuseTime = 3.0f; // Czas do wybuchu
-    public int blastRadius = 2;   // Zasiêg eksplozji (liczba pól)
-    public GameObject explosionPrefab; // Wizualny efekt wybuchu (stwórz go jako nowy Prefab)
+    public float fuseTime = 3.0f;
+    public int blastRadius = 2;
+    public GameObject explosionPrefab;
     public LayerMask explosionMask;
     private PommermanAgent ownerAgent;
-    
-    private const float BLOCK_DESTROYED_REWARD = 3.0f;
-    private const float SUICIDE_PENALTY = -4.0f;
+    private float fuseTimer;
+
+    private const float BLOCK_DESTROYED_REWARD = 0.6f;
+    private const float SUICIDE_PENALTY = -1.5f;
     private const float KILL_OPPONENT_REWARD = 1.2f;
     private const float WIN_REWARD = 3.0f;
+    private ArenaManager arenaManager;
 
     void Start()
     {
         // Rozpocznij odliczanie
+        arenaManager = FindAnyObjectByType<ArenaManager>();
         explosionMask = LayerMask.GetMask("Player", "WallBreakable", "WallSolid", "Destructible");
+        fuseTimer = fuseTime;
         StartCoroutine(DetonateAfterDelay());
     }
 
@@ -40,7 +44,6 @@ public class Bomb : MonoBehaviour
         center.y = 0.5f; // Upewnij siê, ¿e promieñ jest na poziomie obiektów
 
         CheckSinglePoint(center);
-        // Sprawdzenie w 4 kierunkach (North, South, East, West)
         CheckDirection(center, Vector3.forward);
         CheckDirection(center, Vector3.back);
         CheckDirection(center, Vector3.right);
@@ -77,7 +80,7 @@ public class Bomb : MonoBehaviour
                         // === NAGRODA ZA ZABÓJSTWO ===
                         if (ownerAgent != null)
                         {
-                            ownerAgent.AddReward(KILL_OPPONENT_REWARD);
+                            //ownerAgent.AddReward(KILL_OPPONENT_REWARD);
                         }
                     }
                     else
@@ -89,13 +92,10 @@ public class Bomb : MonoBehaviour
                         }
                     }
 
-                    player.Die(); // Zabija gracza, jeœli stoi na bombie
+                    player.Die();
                 }
             }
-            // Mo¿esz te¿ dodaæ logikê niszczenia bonusów, jeœli ju¿ je zaimplementowa³eœ.
         }
-        // Usuñ sam¹ bombê, która jest w³aœnie na tym polu.
-        // Uwaga: Destroy(gameObject); na koñcu DetonateAfterDelay() ju¿ to robi.
     }
 
     void CheckDirection(Vector3 startPos, Vector3 direction)
@@ -135,10 +135,9 @@ public class Bomb : MonoBehaviour
                         ownerAgent.AddReward(BLOCK_DESTROYED_REWARD); // NAGRODA ZA ZNISZCZENIE MURU
                     }
 
-                    ArenaManager mgr = FindAnyObjectByType<ArenaManager>();
-                    if (mgr != null)
+                    if (arenaManager != null)
                     {
-                        mgr.OnBreakableDestroyed(ownerAgent);
+                        arenaManager.OnBreakableDestroyed(ownerAgent);
                     }
                     else
                     {
@@ -159,7 +158,7 @@ public class Bomb : MonoBehaviour
                             // === NAGRODA ZA ZABÓJSTWO ===
                             if (ownerAgent != null)
                             {
-                                ownerAgent.AddReward(KILL_OPPONENT_REWARD);
+                                //ownerAgent.AddReward(KILL_OPPONENT_REWARD);
                             }
                         }
                         else
@@ -178,12 +177,28 @@ public class Bomb : MonoBehaviour
 
             if (hitSolid)
             {
-                break; // Zatrzymuje promieñ po napotkaniu muru
+                break;
             }
         }
     }
     public void SetOwner(PommermanAgent agent)
     {
         ownerAgent = agent;
+    }
+
+    public PommermanAgent GetOwner()
+    {
+        return ownerAgent;
+    }
+
+    void Update()
+    {
+        fuseTimer = Mathf.Max(0f, fuseTimer - Time.deltaTime);
+    }
+
+    public float GetRemainingFuseNormalized()
+    {
+        if (fuseTime <= 0.0001f) return 0f;
+        return Mathf.Clamp01(fuseTimer / fuseTime);
     }
 }

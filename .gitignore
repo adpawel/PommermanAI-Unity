@@ -15,7 +15,7 @@ Logs/
 MemoryCaptures/
 UserSettings/
 Recordings/
-Results/
+# Results/
 *.stacktrace
 
 # --- Unity package manager ---
@@ -52,7 +52,7 @@ bin/
 *.xcworkspace
 
 # --- ML-Agents ---
-results/
+# results/
 models/
 checkpoints/
 summaries/

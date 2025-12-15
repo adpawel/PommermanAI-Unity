@@ -1,6 +1,6 @@
 behaviors:
   # Nazwa musi byc IDEALNIE taka sama jak Behavior Name w Unity
-  PommermanBot:
+  Pommerman_PvP:
     # 1. Okreslamy typ trenera
     trainer_type: ppo
     
@@ -16,12 +16,12 @@ behaviors:
     
     # 3. Ustawienia Generalne
     max_steps: 10000000
-    time_horizon: 1000
-    summary_freq: 5000
+    time_horizon: 256
+    summary_freq: 15000
     
     # 4. Ustawienia Sieci
     network_settings:
-      normalize: true
+      # normalize: true
       hidden_units: 128
       num_layers: 2
       
