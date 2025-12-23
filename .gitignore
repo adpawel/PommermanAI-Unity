@@ -1,0 +1,70 @@
+# ========================================
+# UNITY / ML-AGENTS / VISUAL STUDIO
+# ========================================
+
+# --- Systemowe ---
+.DS_Store
+Thumbs.db
+
+# --- Unity cache i build ---
+Library/
+Temp/
+Obj/
+Build/
+Builds/
+Logs/
+MemoryCaptures/
+UserSettings/
+Recordings/
+Results/
+*.stacktrace
+
+# --- Unity package manager ---
+Packages/com.unity.package-manager/
+Packages/packages-lock.json
+
+# --- Rider / Visual Studio / VSCode ---
+.vscode/
+.vs/
+*.csproj
+*.sln
+*.user
+*.unityproj
+*.pidb
+*.suo
+*.userprefs
+*.booproj
+*.svd
+*.sdf
+*.dbmdl
+*.opendb
+*.VC.db
+
+# --- Kompilacja i cache ---
+obj/
+bin/
+*.exe
+*.dll
+*.mdb
+*.pdb
+*.apk
+*.aab
+*.xcodeproj
+*.xcworkspace
+
+# --- ML-Agents ---
+results/
+models/
+checkpoints/
+summaries/
+*.onnx
+*.yaml.backup
+*.ckpt
+*.tfevents*
+
+# --- Systemowe pliki tymczasowe ---
+*.tmp
+*.bak
+*.swp
+*.old
+*.orig
