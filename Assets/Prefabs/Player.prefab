@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 2588598607327380688}
   - component: {fileID: 5880777734050281862}
   - component: {fileID: -824945051281397964}
+  - component: {fileID: -1720423159778924867}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -151,10 +152,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ed0be37e598e5b49a86eb5ed01bf5fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agentParameters:
-    maxStep: 0
-  hasUpgradedFromAgentParameters: 1
-  MaxStep: 0
   moveSpeed: 5
   bombPrefab: {fileID: 1942765025019410671, guid: 72d54171ad382364aba3670510336092, type: 3}
   isAlive: 1
@@ -175,8 +172,8 @@ MonoBehaviour:
     NumStackedVectorObservations: 1
     m_ActionSpec:
       m_NumContinuousActions: 0
-      BranchSizes: 06000000
-    VectorActionSize: 06000000
+      BranchSizes: 03000000
+    VectorActionSize: 03000000
     VectorActionDescriptions: []
     VectorActionSpaceType: 0
     hasUpgradedBrainParametersWithActionSpec: 1
@@ -201,6 +198,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a5c9d521e5ef4759a8246a07d52221e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DecisionPeriod: 5
+  DecisionPeriod: 1
   DecisionStep: 0
   TakeActionsBetweenDecisions: 1
+--- !u!114 &-1720423159778924867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1025028210049438990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30c7b65cc5aeed64f8e0eb1964b49015, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agentParameters:
+    maxStep: 0
+  hasUpgradedFromAgentParameters: 1
+  MaxStep: 50000

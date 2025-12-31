@@ -3,7 +3,7 @@ behaviors:
   PommermanBot:
     # 1. Okreslamy typ trenera
     trainer_type: ppo
-    
+
     # 2. Ustawienia specyficzne dla trenera PPO
     hyperparameters:
       batch_size: 1024
@@ -13,23 +13,23 @@ behaviors:
       epsilon: 0.2
       lambd: 0.95
       num_epoch: 3
-    
+
     # 3. Ustawienia Generalne
     max_steps: 100000
     time_horizon: 256
     summary_freq: 10000
-    
+
     # 4. Ustawienia Sieci
     network_settings:
       hidden_units: 128
       num_layers: 2
-      
+
     # 5. Ustawienia Nagrod
     reward_signals:
       extrinsic:
         gamma: 0.99
         strength: 1.0
-        
+
     # 6. Ustawienia Treningu
     threaded: True
     # init_path: None

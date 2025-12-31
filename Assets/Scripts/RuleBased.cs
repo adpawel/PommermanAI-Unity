@@ -14,6 +14,7 @@ public class RuleBased
 
     readonly PommermanAgent agent;
     BotState state = BotState.Explore;
+    DecisionAgent ml;
 
     static readonly Vector3[] dirs =
     {
@@ -26,6 +27,7 @@ public class RuleBased
     public RuleBased(PommermanAgent agent)
     {
         this.agent = agent;
+        ml = agent.GetComponentInChildren<DecisionAgent>();
     }
 
     public void Tick()
@@ -34,6 +36,8 @@ public class RuleBased
 
         Bomb dangerBomb = FindDangerousBomb();
 
+        int intent = ml != null ? ml.chosenAction : 0;
+
         if (dangerBomb != null)
         {
             state = BotState.EscapeBomb;
@@ -41,24 +45,30 @@ public class RuleBased
             return;
         }
 
-        if (HasBreakableAdjacent())
+        switch (intent)
         {
-            state = BotState.BombCrate;
-            agent.PlaceBomb();
-            return;
+            case 1:
+                PommermanAgent target = FindAttackTarget();
+                if (target != null && HasEscapeAfterBomb())
+                {
+                    state = BotState.AttackEnemy;
+                    Attack(target);
+                    return;
+                }
+                break;
+            case 2:
+                if (HasBreakableAdjacent())
+                {
+                    state = BotState.BombCrate;
+                    agent.PlaceBomb();
+                    return;
+                }
+                break;
+            default:
+                state = BotState.Explore;
+                Explore();
+                break;
         }
-
-        state = BotState.Explore;
-
-        PommermanAgent target = FindAttackTarget();
-        if (target != null && HasEscapeAfterBomb())
-        {
-            state = BotState.AttackEnemy;
-            Attack(target);
-            return;
-        }
-
-        Explore();
     }
 
     void Explore()
@@ -248,6 +258,7 @@ public class RuleBased
 
     void Attack(PommermanAgent target)
     {
+        agent.MoveTo(target.transform.position);
         agent.PlaceBomb();
     }
 }
