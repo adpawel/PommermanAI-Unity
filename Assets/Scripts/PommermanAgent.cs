@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+Ôªøusing System.Collections.Generic;
 using Unity.MLAgents;
 using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Sensors;
@@ -17,18 +17,24 @@ public class PommermanAgent : Agent
     public GameObject bombPrefab;
     public bool isAlive = true;
     private bool canPlaceBomb = true;
+    public int maxBombs = 2;
+    public bool isDummy;
+    public bool isOpponent;
+
+    private int moveTicks = 0;
+    private int lastMoveTicks = 0;
+
 
     [Header("References")]
     private ArenaManager arenaManager;
     private Rigidbody rb;
     private int agentIndex; // 0 = pierwszy, 1 = drugi
 
-† † // Sta≥e do tagÛw i nagrÛd
-† † private const string SOLID_OBJECT_TAG = "WallSolid";
+¬† ¬† // Sta≈Çe do tag√≥w i nagr√≥d
+¬† ¬† private const string SOLID_OBJECT_TAG = "WallSolid";
     private const string BREAKABLE_OBJECT_TAG = "WallBreakable";
     private const string BOMB_OBJECT_TAG = "Bomb";
 
-    private const float MOVE_REWARD = 0;
     private const float WALL_HIT_PENALTY = -0.005f;
 
     private const int MAX_EPISODE_STEPS = 5000;
@@ -36,193 +42,568 @@ public class PommermanAgent : Agent
     public int bombObservationCount = 2;
     public float bombObserveRadius = 6f;
 
+    public int enemyObservationCount = 1;
+    private float prevDistToEnemy = float.MaxValue;
+    private Bomb lastPlacedBomb;
+    private bool bombPlacedByMe;
+    private float prevDistanceFromBomb;
+    public int stepCount = 0;
+    private List<PommermanAgent> enemies = new List<PommermanAgent>();
+    private HashSet<Vector2Int> visitedCells;
+
+    private static readonly Vector2Int[] DIRS = new Vector2Int[]
+    {
+        Vector2Int.up,
+        Vector2Int.down,
+        Vector2Int.left,
+        Vector2Int.right
+    };
+
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-† † † † // Upewnij siÍ, øe zaczynamy na zaokrπglonej pozycji siatki
-† † † † targetPosition = new Vector3(Mathf.Round(transform.position.x), transform.position.y, Mathf.Round(transform.position.z));
+¬† ¬† ¬† ¬† // Upewnij siƒô, ≈ºe zaczynamy na zaokrƒÖglonej pozycji siatki
+¬† ¬† ¬† ¬† targetPosition = new Vector3(Mathf.Round(transform.position.x), transform.position.y, Mathf.Round(transform.position.z));
         transform.position = targetPosition;
 
-† † † † // Uzyskaj referencjÍ do ArenaManager
-† † † † arenaManager = FindAnyObjectByType<ArenaManager>();
+¬† ¬† ¬† ¬† // Uzyskaj referencjƒô do ArenaManager
+¬† ¬† ¬† ¬† arenaManager = FindAnyObjectByType<ArenaManager>();
         if (arenaManager == null)
         {
             Debug.LogError("ArenaManager not found in scene!");
         }
+
+        foreach (PommermanAgent pommermanAgent in Object.FindObjectsByType<PommermanAgent>(FindObjectsSortMode.None))
+        {
+            if (pommermanAgent != this)
+            {
+                this.enemies.Add(pommermanAgent);
+            }
+        }
     }
 
-† † // === ZAST•PIENIE Update() DLA P£YNNEGO RUCHU ===
-† † // Uøywamy FixedUpdate do ruchu, poniewaø ML-Agents domyúlnie dzia≥a w sta≥ych krokach.
-† † void FixedUpdate()
+    public void RefreshEnemies()
+    {
+        this.enemies.Clear();
+        foreach (PommermanAgent pommermanAgent in Object.FindObjectsByType<PommermanAgent>(FindObjectsSortMode.None))
+        {
+            if (pommermanAgent != this && pommermanAgent.isAlive)
+            {
+                this.enemies.Add(pommermanAgent);
+            }
+        }
+    }
+
+¬† ¬† // === ZASTƒÑPIENIE Update() DLA P≈ÅYNNEGO RUCHU ===
+¬† ¬† // U≈ºywamy FixedUpdate do ruchu, poniewa≈º ML-Agents domy≈õlnie dzia≈Ça w sta≈Çych krokach.
+¬† ¬† void FixedUpdate()
     {
         if (isMoving)
         {
-† † † † † † // P≥ynne poruszanie siÍ do docelowej pozycji
-† † † † † † transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.fixedDeltaTime);
+            moveTicks++;
+            transform.position = Vector3.MoveTowards(
+                transform.position,
+                targetPosition,
+                moveSpeed * Time.fixedDeltaTime
+            );
 
-† † † † † † // Jeúli agent jest blisko, zatrzaúnij go na pozycji i zatrzymaj ruch
-† † † † † † if (Vector3.Distance(transform.position, targetPosition) < 0.01f)
+            if (Vector3.Distance(transform.position, targetPosition) < 0.01f)
             {
                 transform.position = targetPosition;
                 isMoving = false;
+                lastMoveTicks = moveTicks;
+                moveTicks = 0;
+
+                //Debug.Log($"MOVE TICKS = {lastMoveTicks}");
             }
         }
-† † † † // W kaødym kroku (nawet jeúli stoi): nagroda za przetrwanie.
-† † † † //AddReward(-0.0005f);
-        if (StepCount >= MAX_EPISODE_STEPS)
+
+        stepCount++;
+
+        if (stepCount % 500 == 0)
         {
-            // lekka kara za zbyt d≥ugie przeciπganie epizodu
-            //AddReward(-0.2f);
-            //EndEpisode();
+            visitedCells.Clear();
+        }
+
+        if (stepCount > 3500)
+        {
+            arenaManager.EndRound();
+        }
+
+        //if (lastPlacedBomb != null)
+        //{
+        //    float d = Vector3.Distance(transform.position, lastPlacedBomb.transform.position);
+
+        //    if (lastPlacedBomb.GetRemainingFuseNormalized() < 0.6f && d < lastPlacedBomb.blastRadius + 0.2f)
+        //    {
+        //        if (d > prevDistanceFromBomb)
+        //            AddReward(0.003f);
+        //        else
+        //            AddReward(-0.003f);
+
+        //        prevDistanceFromBomb = d;
+        //    }
+        //}
+
+        Collider[] nearby = Physics.OverlapSphere(transform.position, bombObserveRadius - 2);
+
+        foreach (var c in nearby)
+        {
+            if (!c.CompareTag(BOMB_OBJECT_TAG))
+                continue;
+
+            Bomb b = c.GetComponent<Bomb>();
+            if (b == null)
+                continue;
+
+            if (IsInBombBlast(b) && b.GetRemainingFuseNormalized() < 0.7f)
+            {
+                AddReward(-0.01f);
+            }
         }
     }
 
+    bool IsInBombBlast(Bomb bomb)
+    {
+        Vector3 bombPos = bomb.transform.position;
+        Vector3 agentPos = transform.position;
+
+        bombPos.y = 0f;
+        agentPos.y = 0f;
+
+        Vector3 delta = agentPos - bombPos;
+
+        // tylko linie proste
+        if (Mathf.Abs(delta.x) > 0.1f && Mathf.Abs(delta.z) > 0.1f)
+            return false;
+
+        float dist = Mathf.Abs(delta.x) > Mathf.Abs(delta.z)
+            ? Mathf.Abs(delta.x)
+            : Mathf.Abs(delta.z);
+
+        if (dist > bomb.blastRadius)
+            return false;
+
+        // sprawdzamy czy co≈õ nie blokuje wybuchu (solid wall)
+        Vector3 dir = delta.normalized;
+        for (int i = 1; i < dist; i++)
+        {
+            Vector3 p = bombPos + dir * i;
+            Collider[] cols = Physics.OverlapBox(
+                new Vector3(Mathf.Round(p.x), 0.5f, Mathf.Round(p.z)),
+                new Vector3(0.4f, 0.4f, 0.4f)
+            );
+
+            foreach (var c in cols)
+            {
+                if (c.CompareTag("WallSolid"))
+                    return false;
+            }
+        }
+
+        return true;
+    }
+
+
+    public void OnBombExploded(Bomb bomb)
+    {
+        if (bomb == this.lastPlacedBomb)
+        {
+            this.bombPlacedByMe = false;
+            this.lastPlacedBomb = null;
+            this.prevDistanceFromBomb = 0f;
+        }
+    }
+
+    Vector2Int MyGridPos()
+    {
+        return new Vector2Int(
+            Mathf.RoundToInt(transform.position.x),
+            Mathf.RoundToInt(transform.position.z)
+        );
+    }
+
+    bool IsWalkable(Vector2Int cell)
+    {
+        Vector3 pos = new Vector3(cell.x, 0.5f, cell.y);
+        return CanMoveTo(pos);
+    }
+
+    bool IsCellInAnyBombBlast(Vector2Int cell)
+    {
+        Vector3 pos = new Vector3(cell.x, transform.position.y, cell.y);
+
+        Collider[] cols = Physics.OverlapSphere(pos, 0.2f);
+        foreach (var c in cols)
+        {
+            if (!c.CompareTag(BOMB_OBJECT_TAG)) continue;
+            Bomb b = c.GetComponent<Bomb>();
+            if (b != null && IsInBombBlast(b))
+                return true;
+        }
+
+        return false;
+    }
+
+    bool HasEscapePath(int maxDepth = 6)
+    {
+        Vector2Int start = MyGridPos();
+
+        Queue<(Vector2Int pos, int depth)> q = new();
+        HashSet<Vector2Int> visited = new();
+
+        q.Enqueue((start, 0));
+        visited.Add(start);
+
+        while (q.Count > 0)
+        {
+            var (pos, depth) = q.Dequeue();
+
+            if (!IsCellInAnyBombBlast(pos))
+                return true;
+
+            if (depth >= maxDepth)
+                continue;
+
+            foreach (var d in DIRS)
+            {
+                Vector2Int next = pos + d;
+                if (visited.Contains(next)) continue;
+                if (!IsWalkable(next)) continue;
+
+                visited.Add(next);
+                q.Enqueue((next, depth + 1));
+            }
+        }
+        return false;
+    }
+
+    float DistToSafeTile(int maxDepth = 8)
+    {
+        Vector2Int start = MyGridPos();
+
+        Queue<(Vector2Int pos, int depth)> q = new();
+        HashSet<Vector2Int> visited = new();
+
+        q.Enqueue((start, 0));
+        visited.Add(start);
+
+        while (q.Count > 0)
+        {
+            var (pos, depth) = q.Dequeue();
+
+            if (!IsCellInAnyBombBlast(pos))
+                return depth;
+
+            if (depth >= maxDepth)
+                continue;
+
+            foreach (var d in DIRS)
+            {
+                Vector2Int next = pos + d;
+                if (visited.Contains(next)) continue;
+                if (!IsWalkable(next)) continue;
+
+                visited.Add(next);
+                q.Enqueue((next, depth + 1));
+            }
+        }
+
+        return maxDepth;
+    }
+
+    int CountFreeTiles(int radius)
+    {
+        Vector2Int c = MyGridPos();
+        int count = 0;
+
+        for (int dx = -radius; dx <= radius; dx++)
+        {
+            for (int dz = -radius; dz <= radius; dz++)
+            {
+                Vector2Int p = c + new Vector2Int(dx, dz);
+                if (IsWalkable(p))
+                    count++;
+            }
+        }
+        return count;
+    }
+
+
     public override void CollectObservations(VectorSensor sensor)
     {
-        // 3 obserwacje: normalizowana pozycja X, normalizowana pozycja Z, flaga isMoving
+        // ======================
+        // 1. STATUS AGENTA
+        // ======================
         float obsX = 0f;
         float obsZ = 0f;
 
-        // Normalizujemy pozycjÍ wzglÍdem po≥owy rozmiaru planszy (zakres przybliøony do [-1, 1])
         if (arenaManager != null)
         {
-            float half = Mathf.Max(1f, arenaManager.size / 2f); // zabezpieczenie przed dzieleniem przez 0
+            float half = Mathf.Max(1f, arenaManager.size / 2f);
             obsX = Mathf.Clamp(transform.localPosition.x / half, -1f, 1f);
             obsZ = Mathf.Clamp(transform.localPosition.z / half, -1f, 1f);
         }
-        else
-        {
-            // Fallback ó jeøeli arenaManager nie jest ustawiony, uøywamy niewielkiej normalizacji
-            obsX = Mathf.Clamp(transform.localPosition.x / 10f, -1f, 1f);
-            obsZ = Mathf.Clamp(transform.localPosition.z / 10f, -1f, 1f);
-        }
 
-        sensor.AddObservation(obsX);                 // 1: normalizowana pozycja X
-        sensor.AddObservation(obsZ);                 // 2: normalizowana pozycja Z
-        sensor.AddObservation(isMoving ? 1f : 0f);   // 3: czy agent siÍ porusza (0/1)
+        sensor.AddObservation(obsX);
+        sensor.AddObservation(obsZ);
+        sensor.AddObservation(isMoving ? 1f : 0f);
         sensor.AddObservation(canPlaceBomb ? 1f : 0f);
         sensor.AddObservation(agentIndex / 1f);
 
+        // ======================
+        // 2. SIATKA 5x5 ≈öCIAN
+        // ======================
+        for (int dz = 2; dz >= -2; dz--)
+        {
+            for (int dx = -2; dx <= 2; dx++)
+            {
+                Vector3 pos = transform.position + new Vector3(dx, 0, dz);
+                pos.x = Mathf.Round(pos.x);
+                pos.z = Mathf.Round(pos.z);
+                pos.y = 0.5f;
+
+                float val = 0f;
+
+                Collider[] cols = Physics.OverlapBox(
+                    pos,
+                    new Vector3(0.45f, 0.45f, 0.45f),
+                    Quaternion.identity
+                );
+
+                foreach (var c in cols)
+                {
+                    if (c.CompareTag(SOLID_OBJECT_TAG)) val = -1f;
+                    else if (c.CompareTag(BREAKABLE_OBJECT_TAG)) val = 1.0f;
+                    else if (c.CompareTag(BOMB_OBJECT_TAG)) val = 0.5f;
+                }
+
+                sensor.AddObservation(val);
+            }
+        }
+
+        // ======================
+        // 3. BOMBY (NAJBLI≈ªSZE)
+        // ======================
         Collider[] nearby = Physics.OverlapSphere(transform.position, bombObserveRadius);
-        // lista bomb
         List<Bomb> bombs = new List<Bomb>();
+
         foreach (var c in nearby)
         {
-            if (c.CompareTag("Bomb"))
+            if (c.CompareTag(BOMB_OBJECT_TAG))
             {
                 Bomb b = c.GetComponent<Bomb>();
                 if (b != null) bombs.Add(b);
             }
         }
 
-        // posortuj po odleg≥oúci rosnπco
-        bombs.Sort((a, b) => {
-            float da = Vector3.Distance(transform.position, a.transform.position);
-            float db = Vector3.Distance(transform.position, b.transform.position);
-            return da.CompareTo(db);
-        });
+        bombs.Sort((a, b) =>
+            Vector3.Distance(transform.position, a.transform.position)
+            .CompareTo(Vector3.Distance(transform.position, b.transform.position))
+        );
 
-        // Dodaj obserwacje dla K najbliøszych bomb (distance norm, fuse norm, owner flag)
         for (int i = 0; i < bombObservationCount; i++)
         {
             if (i < bombs.Count)
             {
                 Bomb b = bombs[i];
                 float dist = Vector3.Distance(transform.position, b.transform.position);
-                float distNorm = Mathf.Clamp01(dist / bombObserveRadius); // 0..1
+                float distNorm = Mathf.Clamp01(dist / bombObserveRadius);
+                float fuseNorm = b.GetRemainingFuseNormalized();
 
-                float fuseNorm = b.GetRemainingFuseNormalized(); // 0..1
-                                                                 // odwrÛÊ, jeúli chcesz: closer to 0 => about to explode, ale trzymamy 0..1
+                bool isOwner = (b.GetOwner() == this);
 
-                // czy moja bomba?
-                bool isOwner = false;
-                PommermanAgent owner = null;
-                // jeúli bomb ma metodÍ GetOwner() lub public ownerAgent
-                owner = b.GetComponent<Bomb>().GetOwner();
-                if (owner == this) isOwner = true;
+                // czy bomba zagra≈ºa (linia + promie≈Ñ)
+                bool threatening = IsBombThreatening(b);
 
                 sensor.AddObservation(distNorm);
                 sensor.AddObservation(fuseNorm);
                 sensor.AddObservation(isOwner ? 1f : 0f);
+                sensor.AddObservation(threatening ? 1f : 0f);
             }
             else
             {
-                // padding gdy brak bomb
-                sensor.AddObservation(1f); // distMax
-                sensor.AddObservation(0f); // fuse 0
-                sensor.AddObservation(0f); // not owner
+                // padding
+                sensor.AddObservation(1f);
+                sensor.AddObservation(0f);
+                sensor.AddObservation(0f);
+                sensor.AddObservation(0f);
             }
+        }
+
+        // ======================
+        // 4. PRZECIWNICY
+        // ======================
+        RefreshEnemies();
+        enemies.Sort((a, b) =>
+            Vector3.Distance(transform.position, a.transform.position)
+            .CompareTo(Vector3.Distance(transform.position, b.transform.position))
+        );
+
+        for (int i = 0; i < enemyObservationCount; i++)
+        {
+            if (i < enemies.Count)
+            {
+                Vector3 delta = enemies[i].transform.position - transform.position;
+                float half = arenaManager != null ? arenaManager.size / 2f : 10f;
+
+                sensor.AddObservation(Mathf.Clamp(delta.x / half, -1f, 1f));
+                sensor.AddObservation(Mathf.Clamp(delta.z / half, -1f, 1f));
+                sensor.AddObservation(
+                    Mathf.Clamp01(Vector3.Distance(transform.position, enemies[i].transform.position) / half)
+                );
+            }
+            else
+            {
+                sensor.AddObservation(0f);
+                sensor.AddObservation(0f);
+                sensor.AddObservation(1f);
+            }
+        }
+
+        sensor.AddObservation(HasEscapePath() ? 1f : 0f);
+        sensor.AddObservation(DistToSafeTile() / 7f);   // normalizacja
+        sensor.AddObservation(CountFreeTiles(2) / 25f); // (2r+1)^2
+        sensor.AddObservation(CountFreeTiles(3) / 49f);
+
+        for (int i = 0; i < 16; i++)
+        {
+            sensor.AddObservation(0f);
         }
     }
 
-
-† † // === 2. ODBI”R AKCJI OD AI (DECYZJI) ===
-† † public override void OnActionReceived(ActionBuffers actions)
+    private bool IsBombThreatening(Bomb bomb)
     {
-† † † † // Odbieramy akcjÍ z pierwszej (i jedynej) ga≥Ízi dyskretnej
-† † † † int action = actions.DiscreteActions[0];
+        Vector3 dir = bomb.transform.position - transform.position;
+        dir.y = 0f;
 
-        if (!isMoving)
+        // tylko linie proste
+        if (Mathf.Abs(dir.x) > 0.1f && Mathf.Abs(dir.z) > 0.1f)
+            return false;
+
+        float dist = dir.magnitude;
+        if (dist > bomb.blastRadius)
+            return false;
+
+        return true;
+    }
+
+
+    // === 2. ODBI√ìR AKCJI OD AI (DECYZJI) ===
+    public override void OnActionReceived(ActionBuffers actions)
+    {
+        if (this.isMoving)
         {
-            Vector3 direction = Vector3.zero;
-            bool shouldMove = false;
-
-† † † † † † // Konwersja akcji dyskretnych (0-5) na kierunek/dzia≥anie:
-† † † † † † if (action == 1) { direction = Vector3.forward; shouldMove = true; } // PÛ≥noc (Z+)
-† † † † † † else if (action == 2) { direction = Vector3.right; shouldMove = true; }† // WschÛd (X+)
-† † † † † † else if (action == 3) { direction = Vector3.back; shouldMove = true; }† †// Po≥udnie (Z-)
-† † † † † † else if (action == 4) { direction = Vector3.left; shouldMove = true; }† // ZachÛd (X-)
-† † † † † † else if (action == 5) // Stawianie bomby
-† † † † † † {
-                PlaceBomb();
-            }
-
-            if (shouldMove)
+            return;
+        }
+        int num;
+        if (this.isDummy)
+        {
+            float value = Random.value;
+            if (value < 0.15f)
             {
-                Vector3 potentialPosition = transform.position + direction;
-                Vector3 newTargetPosition = new Vector3(
-                  Mathf.Round(potentialPosition.x),
-                  transform.position.y,
-                  Mathf.Round(potentialPosition.z)
-                );
-
-                if (CanMoveTo(newTargetPosition))
-                {
-                    targetPosition = newTargetPosition;
-                    isMoving = true;
-† † † † † † † † † † // Nagradzaj za pomyúlny ruch
-† † † † † † † † † † AddReward(MOVE_REWARD);
-                    arenaManager.cumulativeReward += MOVE_REWARD;
-                }
-                else
-                {
-† † † † † † † † † † // Kara za prÛbÍ wejúcia w zablokowane pole
-† † † † † † † † † † AddReward(WALL_HIT_PENALTY);
-                    arenaManager.cumulativeReward += WALL_HIT_PENALTY;
-                }
+                num = 5;
+            }
+            else if (value < 0.2f)
+            {
+                num = 0;
+            }
+            else
+            {
+                num = Random.Range(1, 5);
             }
         }
+        else
+        {
+            num = actions.DiscreteActions[0];
+        }
+        Vector3 b = Vector3.zero;
+        bool flag = false;
+        if (num == 1)
+        {
+            b = Vector3.forward;
+            flag = true;
+        }
+        else if (num == 2)
+        {
+            b = Vector3.right;
+            flag = true;
+        }
+        else if (num == 3)
+        {
+            b = Vector3.back;
+            flag = true;
+        }
+        else if (num == 4)
+        {
+            b = Vector3.left;
+            flag = true;
+        }
+        else if (num == 5)
+        {
+            this.PlaceBomb();
+        }
+
+
+        if (flag)
+        {
+            Vector3 vector = base.transform.position + b;
+            Vector3 position = new Vector3(Mathf.Round(vector.x), base.transform.position.y, Mathf.Round(vector.z));
+            if (this.CanMoveTo(position))
+            {
+                this.targetPosition = position;
+                this.isMoving = true;
+
+                Vector2Int cell = new Vector2Int(
+                    Mathf.RoundToInt(targetPosition.x),
+                    Mathf.RoundToInt(targetPosition.z)
+                );
+
+                if (!visitedCells.Contains(cell))
+                {
+                    visitedCells.Add(cell);
+                    AddReward(0.005f);
+                }
+
+                return;
+            }
+            if (!this.isDummy)
+            {
+                base.AddReward(WALL_HIT_PENALTY);
+            }
+        }
+
+        //AddReward(-0.0005f);
     }
 
     // === 3. RESET EPIZODU ===
     public override void OnEpisodeBegin()
     {
+        this.prevDistToEnemy = float.MaxValue;
+        visitedCells = new HashSet<Vector2Int>();
+
     }
 
 
-† † // Metoda Die() jest teraz kluczowa dla RL
-† † public void Die()
+¬† ¬† // Metoda Die() jest teraz kluczowa dla RL
+¬† ¬† public void Die()
     {
-        //Debug.Log(gameObject.name + " zginπ≥! Epizod dla tego agenta zakoÒczony.");
+        //Debug.Log(gameObject.name + " zginƒÖ≈Ç! Epizod dla tego agenta zako≈Ñczony.");
         //AddReward(-1.0f);
-        // ZakoÒcz epizod DLA TEGO AGENTA
-        print("Reward this round: " + GetCumulativeReward());
+        //if (!this.isAlive)
+        //{
+        //    return;
+        //}
+        //this.isAlive = false;
+        //base.AddReward(-2.0f);
+
         EndEpisode();
 
         if (arenaManager != null)
         {
-† † † † † † // Poinformuj Managera o úmierci (linia 139)
-† † † † † † arenaManager.OnAgentDied(this);
+¬† ¬† ¬† ¬† ¬† ¬† // Poinformuj Managera o ≈õmierci (linia 139)
+¬† ¬† ¬† ¬† ¬† ¬† arenaManager.OnAgentDied(this);
         }
         else
         {
@@ -233,33 +614,89 @@ public class PommermanAgent : Agent
     // Funkcja pomocnicza do stawiania bomby
     private void PlaceBomb()
     {
+        //if (!canPlaceBomb || isDummy) return;
         if (!canPlaceBomb) return;
+
+        Vector3 vector = new Vector3(Mathf.Round(base.transform.position.x), 0.5f, Mathf.Round(base.transform.position.z));
+        Collider[] array = Physics.OverlapSphere(vector, 0.4f);
+        for (int i = 0; i < array.Length; i++)
+        {
+            if (array[i].CompareTag("Bomb"))
+            {
+                base.AddReward(-0.02f);
+                return;
+            }
+        }
 
         if (bombPrefab != null)
         {
-            canPlaceBomb = false;
+            this.maxBombs--;
+            this.canPlaceBomb = (this.maxBombs > 0);
 
             GameObject newBomb = Instantiate(bombPrefab, new Vector3(Mathf.Round(transform.position.x), 0.5f, Mathf.Round(transform.position.z)), Quaternion.identity);
             Bomb bombScript = newBomb.GetComponent<Bomb>();
             if (bombScript != null)
             {
-                // Przekazujemy referencjÍ do agenta, aby bomba mog≥a go powiadomiÊ
+                // Przekazujemy referencjƒô do agenta, aby bomba mog≈Ça go powiadomiƒá
                 bombScript.SetOwner(this);
 
                 bool targetFound = CheckForTargetWalls(transform.position, bombScript.blastRadius);
                 if (targetFound)
                 {
-                    arenaManager.cumulativeReward += 0.1f;
-                    AddReward(0.1f); // årednia nagroda za DOBRE umieszczenie bomby
-                    print("Poprawne postawienie bomby.");
+                    AddReward(0.02f);
                 }
-                else
+
+                bool enemyFound = CheckForEnemyTargets(transform.position, bombScript.blastRadius);
+                if (enemyFound)
                 {
-                    //AddReward(-0.1f);
-                    //print("kara za z≥e postawienie bomby.");
+                    AddReward(0.02f);
                 }
+                if (!targetFound && !enemyFound)
+                {
+                    //AddReward(-0.01f);
+                }
+
+                this.lastPlacedBomb = bombScript;
+                this.bombPlacedByMe = true;
             }
         }
+    }
+
+    private bool CheckForEnemyTargets(Vector3 bombCenter, int radius)
+    {
+        foreach (Vector3 a in new Vector3[]
+        {
+            Vector3.forward,
+            Vector3.back,
+            Vector3.right,
+            Vector3.left
+        })
+        {
+            for (int j = 1; j <= radius; j++)
+            {
+                Vector3 vector = bombCenter + a * (float)j;
+                Vector3 center = new Vector3(Mathf.Round(vector.x), 0.5f, Mathf.Round(vector.z));
+                Vector3 halfExtents = new Vector3(0.45f, 0.45f, 0.45f);
+                foreach (Collider collider in Physics.OverlapBox(center, halfExtents, Quaternion.identity))
+                {
+                    if (collider.CompareTag("Player"))
+                    {
+                        PommermanAgent component = collider.GetComponent<PommermanAgent>();
+                        if (component != null && component != this)
+                        {
+                            //Debug.Log("Wykryto przeciwnika " + component.name + " w zasiƒôgu bomby!");
+                            return true;
+                        }
+                    }
+                    if (collider.CompareTag("WallSolid"))
+                    {
+                        goto IL_11E;
+                    }
+                }
+            }
+        IL_11E:;
+        }
+        return false;
     }
 
     private bool CheckForTargetWalls(Vector3 bombCenter, int radius)
@@ -274,7 +711,7 @@ public class PommermanAgent : Agent
                 Vector3 center = new Vector3(Mathf.Round(checkPos.x), 0.5f, Mathf.Round(checkPos.z));
                 Vector3 halfExtents = new Vector3(0.45f, 0.45f, 0.45f);
 
-                // 1) Sprawdü bez maski ó zobacz co zwraca
+                // 1) Sprawd≈∫ bez maski ‚Äî zobacz co zwraca
                 Collider[] collidersAll = Physics.OverlapBox(center, halfExtents, Quaternion.identity);
                 if (collidersAll.Length > 0)
                 {
@@ -293,7 +730,6 @@ public class PommermanAgent : Agent
                     Collider[] collidersLayer = Physics.OverlapBox(center, halfExtents, Quaternion.identity, mask);
                     if (collidersLayer.Length > 0)
                     {
-                        Debug.Log($"OverlapBox with MASK hit at {center}: {collidersLayer.Length}");
                         return true;
                     }
                 }
@@ -302,15 +738,15 @@ public class PommermanAgent : Agent
         return false;
     }
 
-
     public void NotifyBombExploded()
     {
-        // Odblokuj moøliwoúÊ postawienia nowej bomby
+        // Odblokuj mo≈ºliwo≈õƒá postawienia nowej bomby
         canPlaceBomb = true;
+        maxBombs++;
     }
 
-† † // Metoda CanMoveTo() pozostaje bez zmian
-† † bool CanMoveTo(Vector3 position)
+¬† ¬† // Metoda CanMoveTo() pozostaje bez zmian
+¬† ¬† bool CanMoveTo(Vector3 position)
     {
         Vector3 checkPoint = position;
         checkPoint.y = 0.5f;
@@ -358,5 +794,31 @@ public class PommermanAgent : Agent
     public void SetStartPosition(Vector3 pos)
     {
         startPosition = pos;
+    }
+
+    public override void Heuristic(in ActionBuffers actionsOut)
+    {
+        ActionSegment<int> discreteActions = actionsOut.DiscreteActions;
+        discreteActions[0] = 0;
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
+        {
+            discreteActions[0] = 1;
+        }
+        else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+        {
+            discreteActions[0] = 2;
+        }
+        else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
+        {
+            discreteActions[0] = 3;
+        }
+        else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+        {
+            discreteActions[0] = 4;
+        }
+        if (Input.GetKey(KeyCode.Space))
+        {
+            discreteActions[0] = 5;
+        }
     }
 }

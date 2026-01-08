@@ -3,28 +3,32 @@ using UnityEngine;
 
 public class ArenaManager : MonoBehaviour
 {
-    public int size = 11;
+    public int size = 7;
     public GameObject floorPrefab;
     public GameObject wallSolidPrefab;
     public GameObject wallBreakablePrefab;
-    public GameObject playerPrefab;
+    public GameObject trainablePlayerPrefab;
+    public GameObject opponentPrefab;
     public Transform playersParent;
-    private int breakableCount = 0;
-    public float cumulativeReward = 0;
 
-    // Pozycje startowe dla 2 agentów (używane do instancjonowania)
+    private int breakableCount = 0;
+    public int playerCount = 2;
     private Vector3[] agentStartPositions;
 
-    // Lista pól w strefie bezpieczeństwa (używana do wykluczania murów)
     private List<Vector3> safeStartAreas;
 
-    // --- Logika dla resetu i kontroli stanu gry ---
     private int agentsAlive;
 
     private bool episodeInProgress = false;
 
     void Start()
     {
+        if (trainablePlayerPrefab == null || opponentPrefab == null)
+        {
+            Debug.LogError("FATAL ERROR: Player prefabs are not assigned in the Inspector on object: " + gameObject.name);
+            return;
+        }
+
         InitializePositions();
         Generate();
         InstantiatePlayers();
@@ -36,71 +40,51 @@ public class ArenaManager : MonoBehaviour
 
     void InitializePositions()
     {
-        int offset = size / 2;
-        // === Krok 1: Definicja DOKŁADNYCH 2 pozycji startowych (1v1) ===
-        agentStartPositions = new Vector3[]
-        {
-            // Agent 1 (Lewy dół: x=1, z=1)
-            new Vector3(1 - offset, 0.5f, 1 - offset), 
-
-            // Agent 2 (Prawy góra: x=size-2, z=size-2)
-            //new Vector3(size - 2 - offset, 0.5f, size - 2 - offset)
-        };
-
-        // === Krok 2: Definicja SZEROKICH stref bezpieczeństwa (3x3 wokół startów) ===
+        int num = size / 2;
+        agentStartPositions = new Vector3[playerCount];
         safeStartAreas = new List<Vector3>();
-
-        // Pętla tworząca strefę dla Agent 1
-        for (int x = 1; x <= 3; x++)
+        Vector3[] array = new Vector3[]
         {
-            for (int z = 1; z <= 2; z++)
-            {
-                safeStartAreas.Add(new Vector3(x - offset, 0.5f, z - offset));
-            }
-        }
-
-        // Pętla tworząca strefę 3x3 dla Agent 2
-
-        for (int x = size - 3; x <= size - 1; x++)
+            new Vector3(1f, 0.5f, 1f),
+            new Vector3((size - 2), 0.5f, (size - 2)),
+            new Vector3(1f, 0.5f, (size - 2)),
+            new Vector3((size - 2), 0.5f, 1f)
+        };
+        for (int i = 0; i < this.playerCount; i++)
         {
-            for (int z = size - 3; z <= size - 2; z++)
+            Vector3 vector = array[i % array.Length];
+            Vector3 vector2 = new Vector3(vector.x - num, vector.y, vector.z - num);
+            agentStartPositions[i] = vector2;
+            for (int j = -1; j <= 1; j++)
             {
-                safeStartAreas.Add(new Vector3(x - offset, 0.5f, z - offset));
+                for (int k = -1; k <= 1; k++)
+                {
+                    safeStartAreas.Add(vector2 + new Vector3(j, 0f, k));
+                }
             }
         }
     }
 
     void Generate()
     {
-        int halfSize = size / 2;
-
-        for (int x = 0; x < size; x++)
+        int num = size / 2;
+        for (int i = 0; i < size; i++)
         {
-            for (int z = 0; z < size; z++)
+            for (int j = 0; j < size; j++)
             {
-                Vector3 pos = new Vector3(x - halfSize, 0, z - halfSize);
-
-                // 1) Floor na każdym polu
-                Instantiate(floorPrefab, pos, Quaternion.identity, transform);
-
-                // 2) Graniczne i "skrzyżowane" solid walls
-                if (x == 0 || z == 0 || x == size - 1 || z == size - 1 || (x % 2 == 0 && z % 2 == 0))
+                Vector3 vector = new Vector3((float)(i - num), 0f, (float)(j - num));
+                Object.Instantiate<GameObject>(floorPrefab, vector, Quaternion.identity, transform);
+                if (i == 0 || j == 0 || i == size - 1 || j == size - 1 || (i % 2 == 0 && j % 2 == 0))
                 {
-                    Instantiate(wallSolidPrefab, pos + Vector3.up * 0.5f, Quaternion.identity, transform);
+                    Object.Instantiate<GameObject>(wallSolidPrefab, vector + Vector3.up * 0.5f, Quaternion.identity, transform);
                 }
                 else
                 {
-                    Vector3 currentWallPos = pos + Vector3.up * 0.5f;
-
-                    // === Krok 2: Sprawdzenie, czy pole jest strefą bezpieczeństwa ===
-                    if (!IsPlayerStartArea(currentWallPos))
+                    Vector3 vector2 = vector + Vector3.up * 0.5f;
+                    if (!this.IsPlayerStartArea(vector2) && Random.value < 0.25f)
                     {
-                        // 3) Losowo niszczalne mury
-                        if (Random.value < 0.5f)
-                        {
-                            Instantiate(wallBreakablePrefab, currentWallPos, Quaternion.identity, transform);
-                            breakableCount++;
-                        }
+                        Instantiate(wallBreakablePrefab, vector2, Quaternion.identity, transform);
+                        breakableCount++;
                     }
                 }
             }
@@ -109,48 +93,28 @@ public class ArenaManager : MonoBehaviour
 
     void InstantiatePlayers()
     {
-        if (playerPrefab == null)
+        GameObject gameObject = Object.Instantiate<GameObject>(this.trainablePlayerPrefab, this.agentStartPositions[0], Quaternion.identity, this.playersParent);
+        gameObject.name = "PommermanAgent_0_Trainable";
+        PommermanAgent component = gameObject.GetComponent<PommermanAgent>();
+        component.SetArenaManager(this);
+        component.SetAgentIndex(0);
+        component.SetStartPosition(this.agentStartPositions[0]);
+        GameObject gameObject2 = Object.Instantiate<GameObject>(opponentPrefab, agentStartPositions[1], Quaternion.identity, playersParent);
+        gameObject2.name = "PommermanAgent_1_Opponent";
+
+        PommermanAgent component2 = gameObject2.GetComponent<PommermanAgent>();
+
+        component2.SetArenaManager(this);
+        component2.SetAgentIndex(1);
+        component2.SetStartPosition(this.agentStartPositions[1]);
+
+        PommermanAgent[] array = Object.FindObjectsByType<PommermanAgent>(FindObjectsSortMode.None);
+
+        for (int i = 0; i < array.Length; i++)
         {
-            Debug.LogError("Player Prefab not assigned to Arena Manager!");
-            return;
+            array[i].RefreshEnemies();
         }
-
-        int createCount = agentStartPositions.Length;
-        for (int i = 0; i < createCount; i++)
-        {
-            Vector3 startPos = agentStartPositions[i];
-            GameObject newPlayer = Instantiate(playerPrefab, startPos, Quaternion.identity, playersParent);
-            newPlayer.name = "PommermanAgent_" + (i + 1);
-
-            PommermanAgent agentScript = newPlayer.GetComponent<PommermanAgent>();
-            if (agentScript != null)
-            {
-                agentScript.SetArenaManager(this);
-                agentScript.SetAgentIndex(i);
-                agentScript.SetStartPosition(startPos);
-            }
-        }
-        agentsAlive = createCount;
-        ////if(agentsAlive <= 1)
-        ////{
-        //    //for (int i = 0; i < agentStartPositions.Length; i++)
-        //    for (int i = 0; i < 1; i++)
-        //    {
-        //        Vector3 startPos = agentStartPositions[i];
-
-        //        // Stwórz gracza na zdefiniowanej pozycji
-        //        GameObject newPlayer = Instantiate(playerPrefab, startPos, Quaternion.identity, playersParent);
-
-        //        newPlayer.name = "PommermanAgent_" + (i + 1);
-
-        //        PommermanAgent agentScript = newPlayer.GetComponent<PommermanAgent>();
-        //        if (agentScript != null)
-        //        {
-        //            agentScript.SetArenaManager(this);
-        //        }
-        //    }
-        //agentsAlive = 1;
-        ////}
+        this.agentsAlive = this.agentStartPositions.Length;
     }
 
 
@@ -175,39 +139,35 @@ public class ArenaManager : MonoBehaviour
     /// <summary>
     /// Wywoływana przez agenta, gdy zginie (np. przez bombę).
     /// </summary>
-    public void OnAgentDied(MonoBehaviour agent)
+    public void OnAgentDied(PommermanAgent agent)
     {
-        if (!episodeInProgress) return;
-        //agentsAlive--;
-
-        //// Sprawdzamy, czy pozostał tylko jeden (zwycięzca) lub nikt (remis/samobójstwo)
-        //if (agentsAlive <= 1)
-        //{
-        //    // Opcjonalnie: Nagradzanie ostatniego żywego agenta
-        //    if (agentsAlive == 1)
-        //    {
-        //        PommermanAgent winner = FindAnyObjectByType<PommermanAgent>();
-        //        if (winner != null)
-        //        {
-        //            // Duża, końcowa nagroda za zwycięstwo!
-        //            winner.SetReward(5.0f);
-        //            winner.EndEpisode();
-        //        }
-        //    }
-        //if (!resetScheduled) StartCoroutine(DelayedReset(0.05f));
-        ResetEnvironment();
-        //} 
-        //else
-        //{
-        //    DestroyImmediate(agent.gameObject);
-        //}
+        if (!this.episodeInProgress)
+        {
+            return;
+        }
+        this.agentsAlive--;
+        if (this.agentsAlive <= 1)
+        {
+            Debug.Log(agent.name + " zginął");
+            this.EndRound();
+        }
     }
 
-    /// <summary>
-    /// Wywoływane, gdy zniszczono niszczalny wall. 
-    /// `owner` może być null (np. wybuch środowiskowy) — wtedy nie przyznajemy nagrody.
-    /// Jeśli to ostatni wall, przyznajemy nagrodę i restartujemy środowisko.
-    /// </summary>
+    public void EndRound()
+    {
+        this.episodeInProgress = false;
+        foreach (PommermanAgent pommermanAgent in Object.FindObjectsByType<PommermanAgent>(FindObjectsSortMode.None))
+        {
+            //if (pommermanAgent.isAlive && agentsAlive == 2)
+            //{
+            //    pommermanAgent.AddReward(-0.5f);
+            //}
+            pommermanAgent.EndEpisode();
+        }
+        base.Invoke("ResetEnvironment", 0.05f);
+    }
+
+    /// uwaga
     public void OnBreakableDestroyed(PommermanAgent owner)
     {
         // zabezpieczenie
@@ -219,67 +179,41 @@ public class ArenaManager : MonoBehaviour
         breakableCount--;
 
         // Debug
-        Debug.Log($"Breakable destroyed. Remaining: {breakableCount}");
+        //Debug.Log($"Breakable destroyed. Remaining: {breakableCount}");
 
         if (breakableCount <= 0)
         {
-            Debug.Log("All breakables destroyed! Awarding win...");
+            //Debug.Log("All breakables destroyed! Awarding win...");
 
-            if (owner != null)
-            {
-                print("Reward this round: " + owner.GetCumulativeReward());
+            //if (owner != null)
+            //{
+            //    owner.EndEpisode();
+            //}
 
-                owner.EndEpisode();
-            }
-
-            ResetEnvironment();
+            //ResetEnvironment();
         }
     }
 
 
-    void ResetEnvironment()
+    private void ResetEnvironment()
     {
-        print("reset");
-        // === 1. Zabezpieczenie przed ponownym resetem ===
-        if (!episodeInProgress) return;
-        episodeInProgress = false;
-
-        PommermanAgent[] agents = FindObjectsByType<PommermanAgent>(FindObjectsSortMode.None);
-        foreach (PommermanAgent agent in agents)
+        Bomb[] array = Object.FindObjectsByType<Bomb>(FindObjectsSortMode.None);
+        for (int i = 0; i < array.Length; i++)
         {
-            if (agent != null)
-            {
-                try {
-                    agent.EndEpisode();
-                } catch { }
-            }
+            Object.Destroy(array[i].gameObject);
         }
-
-        var bombs = FindObjectsByType<Bomb>(FindObjectsSortMode.None);
-        foreach (var bomb in bombs)
-            Destroy(bomb.gameObject);
-
-        PommermanAgent[] agents1 = FindObjectsByType<PommermanAgent>(FindObjectsSortMode.None);
-        foreach (PommermanAgent agent in agents1)
+        PommermanAgent[] array2 = Object.FindObjectsByType<PommermanAgent>(FindObjectsSortMode.None);
+        for (int i = 0; i < array2.Length; i++)
         {
-            if (agent != null)
-            {
-                Destroy(agent.gameObject);
-            }
+            Object.Destroy(array2[i].gameObject);
         }
-
-        var transformChildren = transform;
-        foreach (Transform child in transformChildren)
-            if (child != transform)
-                Destroy(child.gameObject);
-
-        breakableCount = 0;
-        cumulativeReward = 0;
-
-        Generate();
-        InstantiatePlayers();
-        agentsAlive = agentStartPositions.Length;
-        episodeInProgress = true;
+        foreach (object obj in base.transform)
+        {
+            Object.Destroy(((Transform)obj).gameObject);
+        }
+        this.breakableCount = 0;
+        this.Generate();
+        this.InstantiatePlayers();
+        this.episodeInProgress = true;
     }
 }
-

@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 8305988596015242162}
   - component: {fileID: 5880777734050281862}
   - component: {fileID: -824945051281397964}
+  - component: {fileID: 6275643644134205852}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -72,7 +73,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -876546973899608171, guid: 9920c1f1781549a46ba081a2a15a16ec, type: 3}
+  - {fileID: 2100000, guid: 761d8e1f988ed2345a28312145c79c6e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -159,13 +160,18 @@ MonoBehaviour:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
   MaxStep: 0
-  moveSpeed: 5
+  moveSpeed: 3
   startPosition: {x: 0, y: 0, z: 0}
   agentIndexPublic: 0
   bombPrefab: {fileID: 1942765025019410671, guid: 72d54171ad382364aba3670510336092, type: 3}
   isAlive: 1
+  maxBombs: 2
+  isDummy: 0
+  isOpponent: 0
   bombObservationCount: 3
   bombObserveRadius: 6
+  enemyObservationCount: 1
+  stepCount: 0
 --- !u!114 &8305988596015242162
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -211,7 +217,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BrainParameters:
-    VectorObservationSize: 14
+    VectorObservationSize: 71
     NumStackedVectorObservations: 1
     m_ActionSpec:
       m_NumContinuousActions: 0
@@ -220,9 +226,9 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 0
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 0}
+  m_Model: {fileID: 5022602860645237092, guid: 694873528f493024d959660b84226cf1, type: 3}
   m_InferenceDevice: 0
-  m_BehaviorType: 0
+  m_BehaviorType: 2
   m_BehaviorName: PommermanBot
   TeamId: 0
   m_UseChildSensors: 1
@@ -241,6 +247,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a5c9d521e5ef4759a8246a07d52221e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DecisionPeriod: 5
+  DecisionPeriod: 1
   DecisionStep: 0
   TakeActionsBetweenDecisions: 1
+--- !u!114 &6275643644134205852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1025028210049438990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2902496c0120472b90269f94a0aec7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.ML-Agents::Unity.MLAgents.Demonstrations.DemonstrationRecorder
+  Record: 0
+  NumStepsToRecord: 5000
+  DemonstrationName: PommermanDemo
+  DemonstrationDirectory: Demonstrations

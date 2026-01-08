@@ -1,0 +1,65 @@
+{
+    "PommermanBot": {
+        "checkpoints": [
+            {
+                "steps": 841230,
+                "file_path": "results\\Pommerman_New_IL2\\PommermanBot\\PommermanBot-841230.onnx",
+                "reward": 0.22466664873063563,
+                "creation_time": 1767301692.2478125,
+                "auxillary_file_paths": [
+                    "results\\Pommerman_New_IL2\\PommermanBot\\PommermanBot-841230.pt"
+                ]
+            },
+            {
+                "steps": 862705,
+                "file_path": "results\\Pommerman_New_IL2\\PommermanBot\\PommermanBot-862705.onnx",
+                "reward": 0.6489998307079077,
+                "creation_time": 1767302006.1757603,
+                "auxillary_file_paths": [
+                    "results\\Pommerman_New_IL2\\PommermanBot\\PommermanBot-862705.pt"
+                ]
+            },
+            {
+                "steps": 885911,
+                "file_path": "results\\Pommerman_New_IL2\\PommermanBot\\PommermanBot-885911.onnx",
+                "reward": 0.9593333256327443,
+                "creation_time": 1767302143.2275689,
+                "auxillary_file_paths": [
+                    "results\\Pommerman_New_IL2\\PommermanBot\\PommermanBot-885911.pt"
+                ]
+            },
+            {
+                "steps": 999980,
+                "file_path": "results\\Pommerman_New_IL2\\PommermanBot\\PommermanBot-999980.onnx",
+                "reward": 0.3172058773172252,
+                "creation_time": 1767302864.9975338,
+                "auxillary_file_paths": [
+                    "results\\Pommerman_New_IL2\\PommermanBot\\PommermanBot-999980.pt"
+                ]
+            },
+            {
+                "steps": 1359764,
+                "file_path": "results\\Pommerman_New_IL2\\PommermanBot\\PommermanBot-1359764.onnx",
+                "reward": null,
+                "creation_time": 1767305397.0723171,
+                "auxillary_file_paths": [
+                    "results\\Pommerman_New_IL2\\PommermanBot\\PommermanBot-1359764.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 1359764,
+            "file_path": "results\\Pommerman_New_IL2\\PommermanBot.onnx",
+            "reward": null,
+            "creation_time": 1767305397.0723171,
+            "auxillary_file_paths": [
+                "results\\Pommerman_New_IL2\\PommermanBot\\PommermanBot-1359764.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.30.0",
+        "torch_version": "1.13.1+cpu"
+    }
+}

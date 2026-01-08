@@ -4,18 +4,20 @@ using System.Collections;
 public class Bomb : MonoBehaviour
 {
     // Konfigurowalne parametry
-    public float fuseTime = 3.0f;
-    public int blastRadius = 2;
-    public GameObject explosionPrefab;
+    public float fuseTime = 2.0f;
+    public int blastRadius = 2;
+    public GameObject explosionPrefab;
     public LayerMask explosionMask;
     private PommermanAgent ownerAgent;
     private float fuseTimer;
 
-    private const float BLOCK_DESTROYED_REWARD = 0.6f;
-    private const float SUICIDE_PENALTY = -1.5f;
-    private const float KILL_OPPONENT_REWARD = 1.2f;
+    private const float BLOCK_DESTROYED_REWARD = 0.2f;
+    private const float SUICIDE_PENALTY = -2.5f;
+    private const float KILL_OPPONENT_REWARD = 2.5f;
     private const float WIN_REWARD = 3.0f;
     private ArenaManager arenaManager;
+    public bool damageOwner = true;
+
 
     void Start()
     {
@@ -44,7 +46,7 @@ public class Bomb : MonoBehaviour
         center.y = 0.5f; // Upewnij siê, ¿e promieñ jest na poziomie obiektów
 
         CheckSinglePoint(center);
-        CheckDirection(center, Vector3.forward);
+        CheckDirection(center, Vector3.forward);
         CheckDirection(center, Vector3.back);
         CheckDirection(center, Vector3.right);
         CheckDirection(center, Vector3.left);
@@ -52,133 +54,123 @@ public class Bomb : MonoBehaviour
         if (ownerAgent != null)
         {
             ownerAgent.NotifyBombExploded();
+            this.ownerAgent.OnBombExploded(this);
         }
     }
 
-    void CheckSinglePoint(Vector3 checkPos)
+    private void CheckSinglePoint(Vector3 checkPos)
     {
-        // Tworzenie wizualizacji eksplozji w danym punkcie
-        if (explosionPrefab != null)
+        if (this.explosionPrefab != null)
         {
-            Instantiate(explosionPrefab, checkPos, Quaternion.identity);
+            Object.Instantiate<GameObject>(this.explosionPrefab, checkPos, Quaternion.identity);
         }
-
-        // Sprawdzanie kolizji na polu
-        Collider[] colliders = Physics.OverlapBox(checkPos, new Vector3(0.40f, 0.40f, 0.40f), Quaternion.identity, explosionMask);
-
-        foreach (Collider col in colliders)
+        foreach (Collider collider in Physics.OverlapBox(checkPos, new Vector3(0.4f, 0.4f, 0.4f), Quaternion.identity, this.explosionMask))
         {
-            // Na centralnym polu NIE ma WallSolid ani WallBreakable (bo je ju¿ rozbi³eœ lub ich tam nie by³o, 
-            // jeœli gracze nie ruszali siê poza granice)
-            if (col.CompareTag("Player"))
+            if (collider.CompareTag("Player"))
             {
-                PommermanAgent player = col.GetComponent<PommermanAgent>();
-                if (player != null)
+                PommermanAgent component = collider.GetComponent<PommermanAgent>();
+                if (component != null)
                 {
-                    if (player != ownerAgent)
+                    if (!this.damageOwner && component == this.ownerAgent)
                     {
-                        // === NAGRODA ZA ZABÓJSTWO ===
-                        if (ownerAgent != null)
-                        {
-                            //ownerAgent.AddReward(KILL_OPPONENT_REWARD);
-                        }
+                        this.ownerAgent.AddReward(-1f);
+                        this.ownerAgent.EndEpisode();
                     }
                     else
                     {
-                        // KARA ZA SAMOBÓJSTWO (opcjonalna, ale dobra)
-                        if (ownerAgent != null)
+                        if (component != this.ownerAgent)
                         {
-                            ownerAgent.AddReward(SUICIDE_PENALTY);
+                            if (this.ownerAgent != null)
+                            {
+                                this.ownerAgent.AddReward(KILL_OPPONENT_REWARD);
+                            }
+                            component.AddReward(-2.0f);
                         }
+                        else if (this.ownerAgent != null)
+                        {
+                            this.ownerAgent.AddReward(SUICIDE_PENALTY);
+                        }
+                        component.Die();
                     }
-
-                    player.Die();
-                }
-            }
-        }
-    }
-
-    void CheckDirection(Vector3 startPos, Vector3 direction)
-    {
-        for (int i = 1; i <= blastRadius; i++)
-        {
-            Vector3 checkPos = startPos + direction * i;
-            // Zaokr¹glenie, aby celowaæ dok³adnie w œrodek siatki
-            checkPos.x = Mathf.Round(checkPos.x);
-            checkPos.z = Mathf.Round(checkPos.z);
-
-            // Tworzenie wizualizacji eksplozji w danym punkcie
-            if (explosionPrefab != null)
-            {
-                // Instancja wybuchu, która po chwili sama siê niszczy
-                Instantiate(explosionPrefab, checkPos, Quaternion.identity);
-            }
-
-            // U¿ycie Raycast lub OverlapBox, ale dla siatki najlepsze jest
-            // BoxCast lub OverlapBox na precyzyjnym punkcie
-            Collider[] colliders = Physics.OverlapBox(checkPos, new Vector3(0.40f, 0.40f, 0.40f), Quaternion.identity, explosionMask);
-
-            bool hitSolid = false;
-            foreach (Collider col in colliders)
-            {
-                if (col.CompareTag("WallSolid"))
-                {
-                    hitSolid = true; // Zatrzymuje eksplozjê
-                    break;
                 }
-                else if (col.CompareTag("WallBreakable"))
-                {
-                    Destroy(col.gameObject); // Niszczy niszczalny mur
-                    
-                    if (ownerAgent != null)
-                    {
-                        ownerAgent.AddReward(BLOCK_DESTROYED_REWARD); // NAGRODA ZA ZNISZCZENIE MURU
-                    }
+            }
+        }
+    }
 
-                    if (arenaManager != null)
+    private void CheckDirection(Vector3 startPos, Vector3 direction)
+    {
+        for (int i = 1; i <= this.blastRadius; i++)
+        {
+            Vector3 vector = startPos + direction * (float)i;
+            vector.x = Mathf.Round(vector.x);
+            vector.z = Mathf.Round(vector.z);
+            if (this.explosionPrefab != null)
+            {
+                Object.Instantiate<GameObject>(this.explosionPrefab, vector, Quaternion.identity);
+            }
+            Collider[] array = Physics.OverlapBox(vector, new Vector3(0.4f, 0.4f, 0.4f), Quaternion.identity, this.explosionMask);
+            bool flag = false;
+            foreach (Collider collider in array)
+            {
+                if (collider.CompareTag("WallSolid"))
+                {
+                    flag = true;
+                    break;
+                }
+                if (collider.CompareTag("WallBreakable"))
+                {
+                    Object.Destroy(collider.gameObject);
+                    if (this.ownerAgent != null)
                     {
-                        arenaManager.OnBreakableDestroyed(ownerAgent);
+                        this.ownerAgent.AddReward(BLOCK_DESTROYED_REWARD);
+                    }
+                    if (this.arenaManager != null)
+                    {
+                        this.arenaManager.OnBreakableDestroyed(this.ownerAgent);
                     }
                     else
                     {
-                        // Alternatywnie: spróbuj znaleŸæ inn¹ drog¹ (FindObjectOfType). Loguj dla debugu.
                         Debug.LogWarning("ArenaManager not found when notifying breakable destruction.");
                     }
-
-                    hitSolid = true; // Zatrzymuje eksplozjê
-                    break;
+                    flag = true;
+                    break;
                 }
-                else if (col.CompareTag("Player"))
+                if (collider.CompareTag("Player"))
                 {
-                    PommermanAgent player = col.GetComponent<PommermanAgent>();
-                    if (player != null)
+                    PommermanAgent component = collider.GetComponent<PommermanAgent>();
+                    if (component != null)
                     {
-                        if (player != ownerAgent)
+                        if (!this.damageOwner && component == this.ownerAgent)
                         {
-                            // === NAGRODA ZA ZABÓJSTWO ===
-                            if (ownerAgent != null)
-                            {
-                                //ownerAgent.AddReward(KILL_OPPONENT_REWARD);
-                            }
+                            this.ownerAgent.AddReward(-1f);
+                            this.ownerAgent.EndEpisode();
                         }
                         else
                         {
-                            // KARA ZA SAMOBÓJSTWO (opcjonalna, ale dobra)
-                            if (ownerAgent != null)
+                            if (component != this.ownerAgent)
                             {
-                                ownerAgent.AddReward(SUICIDE_PENALTY);
+                                if (this.ownerAgent != null)
+                                {
+                                    this.ownerAgent.AddReward(KILL_OPPONENT_REWARD);
+                                }
+                                component.AddReward(-2.0f);
+                                component.Die();
                             }
-                        }
+                            else if (this.ownerAgent != null)
+                            {
+                                this.ownerAgent.AddReward(SUICIDE_PENALTY);
+                                //if (!ownerAgent.isOpponent)
+                                ownerAgent.Die();
+                            }
 
-                        player.Die();
+                        }
                     }
                 }
             }
-
-            if (hitSolid)
+            if (flag)
             {
                 break;
-            }
+            }
         }
     }
     public void SetOwner(PommermanAgent agent)

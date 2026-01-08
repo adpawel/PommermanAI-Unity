@@ -56,7 +56,6 @@ bin/
 models/
 checkpoints/
 summaries/
-*.onnx
 *.yaml.backup
 *.ckpt
 *.tfevents*
