@@ -168,9 +168,9 @@ MonoBehaviour:
   wallSolidPrefab: {fileID: 6709767616971543623, guid: c5f80c5ada140d84c8e491b0da85cc32, type: 3}
   wallBreakablePrefab: {fileID: 8406505185310279845, guid: fccc62a552792fb41b746cb42c51c914, type: 3}
   trainablePlayerPrefab: {fileID: 1025028210049438990, guid: 81c950339f634dc4d9f40f866a8963c4, type: 3}
-  opponentPrefab: {fileID: 1025028210049438990, guid: 6c93a6ad1c840f74a80d4da0c8ceedfb, type: 3}
+  opponentPrefab: {fileID: 1025028210049438990, guid: 1e04802f672ea0c4daef71cd533c2a18, type: 3}
   playersParent: {fileID: 0}
-  playerCount: 2
+  playerCount: 4
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0

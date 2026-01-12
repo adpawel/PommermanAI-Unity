@@ -13,10 +13,10 @@ GameObject:
   - component: {fileID: 3648042415187869807}
   - component: {fileID: 5463113688230972847}
   - component: {fileID: 6024817160754763501}
-  - component: {fileID: 2588598607327380688}
   - component: {fileID: 8305988596015242162}
   - component: {fileID: 5880777734050281862}
   - component: {fileID: -824945051281397964}
+  - component: {fileID: 408807330686456504}
   m_Layer: 3
   m_Name: Opponent
   m_TagString: Player
@@ -143,33 +143,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
---- !u!114 &2588598607327380688
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1025028210049438990}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ed0be37e598e5b49a86eb5ed01bf5fa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  agentParameters:
-    maxStep: 0
-  hasUpgradedFromAgentParameters: 1
-  MaxStep: 0
-  moveSpeed: 3
-  startPosition: {x: 0, y: 0, z: 0}
-  agentIndexPublic: 0
-  bombPrefab: {fileID: 1942765025019410671, guid: 72d54171ad382364aba3670510336092, type: 3}
-  isAlive: 1
-  maxBombs: 1
-  isDummy: 1
-  bombObservationCount: 3
-  bombObserveRadius: 6
-  enemyObservationCount: 3
-  stepCount: 0
 --- !u!114 &8305988596015242162
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -248,3 +221,32 @@ MonoBehaviour:
   DecisionPeriod: 5
   DecisionStep: 0
   TakeActionsBetweenDecisions: 1
+--- !u!114 &408807330686456504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1025028210049438990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86172aced18481442b15a49116e0e33c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PommermanAgent2v2
+  agentParameters:
+    maxStep: 0
+  hasUpgradedFromAgentParameters: 1
+  MaxStep: 0
+  moveSpeed: 3
+  startPosition: {x: 0, y: 0, z: 0}
+  agentIndexPublic: 0
+  bombPrefab: {fileID: 1942765025019410671, guid: 60dd24cfd68ee274abf57fab00dbe56c, type: 3}
+  isAlive: 1
+  maxBombs: 1
+  isDummy: 1
+  isOpponent: 1
+  teamId: 1
+  bombObservationCount: 3
+  bombObserveRadius: 6
+  enemyObservationCount: 1
+  stepCount: 0

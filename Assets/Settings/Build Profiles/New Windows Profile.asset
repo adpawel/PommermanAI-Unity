@@ -18,12 +18,20 @@ MonoBehaviour:
   m_PlatformId: 4e3c793746204150860bf175a9a41a05
   m_PlatformBuildProfile:
     rid: 9117700737528758342
-  m_OverrideGlobalSceneList: 0
+  m_OverrideGlobalSceneList: 1
   m_Scenes:
   - m_enabled: 1
+    m_path: Assets/Scenes/Menu.unity
+  - m_enabled: 1
+    m_path: Assets/Scenes/Game_1v1.unity
+  - m_enabled: 1
+    m_path: Assets/Scenes/Game_2v2.unity
+  - m_enabled: 0
     m_path: Assets/Scenes/SampleScene.unity
   m_ScriptingDefines:
-  - Scenes/SampleScene
+  - Scenes/Menu
+  - Scenes/Game_1v1
+  - Scenes/Game_2v2
   m_PlayerSettingsYaml:
     m_Settings:
     - line: '| PlayerSettings:'
@@ -108,7 +116,7 @@ MonoBehaviour:
     - line: '|   androidApplicationEntry: 2'
     - line: '|   defaultIsNativeResolution: 1'
     - line: '|   macRetinaSupport: 1'
-    - line: '|   runInBackground: 1'
+    - line: '|   runInBackground: 0'
     - line: '|   muteOtherAudioSources: 0'
     - line: '|   Prepare IOS For Recording: 0'
     - line: '|   Force IOS Speakers When Recording: 0'
@@ -121,7 +129,7 @@ MonoBehaviour:
     - line: '|   bakeCollisionMeshes: 0'
     - line: '|   forceSingleInstance: 0'
     - line: '|   useFlipModelSwapchain: 1'
-    - line: '|   resizableWindow: 0'
+    - line: '|   resizableWindow: 1'
     - line: '|   useMacAppStoreValidation: 0'
     - line: '|   macAppStoreCategory: public.app-category.games'
     - line: '|   gpuSkinning: 1'
@@ -133,7 +141,7 @@ MonoBehaviour:
     - line: '|   xboxEnableFitness: 0'
     - line: '|   visibleInBackground: 1'
     - line: '|   allowFullscreenSwitch: 1'
-    - line: '|   fullscreenMode: 1'
+    - line: '|   fullscreenMode: 3'
     - line: '|   xboxSpeechDB: 0'
     - line: '|   xboxEnableHeadOrientation: 0'
     - line: '|   xboxEnableGuest: 0'

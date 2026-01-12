@@ -42,7 +42,8 @@ Packages/packages-lock.json
 # --- Kompilacja i cache ---
 obj/
 bin/
-*.exe
+# *.exe
+*.log
 *.dll
 *.mdb
 *.pdb
