@@ -1,0 +1,56 @@
+{
+    "PommermanBot": {
+        "checkpoints": [
+            {
+                "steps": 499934,
+                "file_path": "results\\Pommerman_Alone_PPO\\PommermanBot\\PommermanBot-499934.onnx",
+                "reward": 5.103333823072414,
+                "creation_time": 1767734993.3175962,
+                "auxillary_file_paths": [
+                    "results\\Pommerman_Alone_PPO\\PommermanBot\\PommermanBot-499934.pt"
+                ]
+            },
+            {
+                "steps": 885475,
+                "file_path": "results\\Pommerman_Alone_PPO\\PommermanBot\\PommermanBot-885475.onnx",
+                "reward": null,
+                "creation_time": 1767737321.474992,
+                "auxillary_file_paths": [
+                    "results\\Pommerman_Alone_PPO\\PommermanBot\\PommermanBot-885475.pt"
+                ]
+            },
+            {
+                "steps": 999812,
+                "file_path": "results\\Pommerman_Alone_PPO\\PommermanBot\\PommermanBot-999812.onnx",
+                "reward": 7.672500532120466,
+                "creation_time": 1767784069.6979628,
+                "auxillary_file_paths": [
+                    "results\\Pommerman_Alone_PPO\\PommermanBot\\PommermanBot-999812.pt"
+                ]
+            },
+            {
+                "steps": 1431682,
+                "file_path": "results\\Pommerman_Alone_PPO\\PommermanBot\\PommermanBot-1431682.onnx",
+                "reward": null,
+                "creation_time": 1767786322.5353856,
+                "auxillary_file_paths": [
+                    "results\\Pommerman_Alone_PPO\\PommermanBot\\PommermanBot-1431682.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 1431682,
+            "file_path": "results\\Pommerman_Alone_PPO\\PommermanBot.onnx",
+            "reward": null,
+            "creation_time": 1767786322.5353856,
+            "auxillary_file_paths": [
+                "results\\Pommerman_Alone_PPO\\PommermanBot\\PommermanBot-1431682.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.30.0",
+        "torch_version": "1.13.1+cpu"
+    }
+}

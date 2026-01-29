@@ -1,0 +1,65 @@
+{
+    "PommermanBot": {
+        "checkpoints": [
+            {
+                "steps": 5999988,
+                "file_path": "results\\Pommerman_New_IL_Opponent\\PommermanBot\\PommermanBot-5999988.onnx",
+                "reward": 1.6987037457249783,
+                "creation_time": 1767333698.1064205,
+                "auxillary_file_paths": [
+                    "results\\Pommerman_New_IL_Opponent\\PommermanBot\\PommermanBot-5999988.pt"
+                ]
+            },
+            {
+                "steps": 6499974,
+                "file_path": "results\\Pommerman_New_IL_Opponent\\PommermanBot\\PommermanBot-6499974.onnx",
+                "reward": 2.893351359896966,
+                "creation_time": 1767336729.2667983,
+                "auxillary_file_paths": [
+                    "results\\Pommerman_New_IL_Opponent\\PommermanBot\\PommermanBot-6499974.pt"
+                ]
+            },
+            {
+                "steps": 6840110,
+                "file_path": "results\\Pommerman_New_IL_Opponent\\PommermanBot\\PommermanBot-6840110.onnx",
+                "reward": 6.211714355008943,
+                "creation_time": 1767338800.8662546,
+                "auxillary_file_paths": [
+                    "results\\Pommerman_New_IL_Opponent\\PommermanBot\\PommermanBot-6840110.pt"
+                ]
+            },
+            {
+                "steps": 1362908,
+                "file_path": "results\\Pommerman_New_IL_Opponent\\PommermanBot\\PommermanBot-1362908.onnx",
+                "reward": 2.445000196910567,
+                "creation_time": 1767339067.490562,
+                "auxillary_file_paths": [
+                    "results\\Pommerman_New_IL_Opponent\\PommermanBot\\PommermanBot-1362908.pt"
+                ]
+            },
+            {
+                "steps": 1365575,
+                "file_path": "results\\Pommerman_New_IL_Opponent\\PommermanBot\\PommermanBot-1365575.onnx",
+                "reward": 2.4251997219398618,
+                "creation_time": 1767339251.8071854,
+                "auxillary_file_paths": [
+                    "results\\Pommerman_New_IL_Opponent\\PommermanBot\\PommermanBot-1365575.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 1365575,
+            "file_path": "results\\Pommerman_New_IL_Opponent\\PommermanBot.onnx",
+            "reward": 2.4251997219398618,
+            "creation_time": 1767339251.8071854,
+            "auxillary_file_paths": [
+                "results\\Pommerman_New_IL_Opponent\\PommermanBot\\PommermanBot-1365575.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.30.0",
+        "torch_version": "1.13.1+cpu"
+    }
+}

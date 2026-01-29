@@ -1,0 +1,2924 @@
+Mono path[0] = 'C:/Users/adpaw/projects/unity/pommerman-simple/pommermanai-unity/Builds/build-alone-a2c/PommermanAi_Data/Managed'
+Mono config path = 'C:/Users/adpaw/projects/unity/pommerman-simple/pommermanai-unity/Builds/build-alone-a2c/MonoBleedingEdge/etc'
+Input System module state changed to: Initialized.
+[Physics::Module] Initialized fallback backend.
+[Physics::Module] Id: 0xdecafbad
+Initialize engine version: 6000.2.7f2 (2b518236b676)
+[Subsystems] Discovering subsystems at path C:/Users/adpaw/projects/unity/pommerman-simple/pommermanai-unity/Builds/build-alone-a2c/PommermanAi_Data/UnitySubsystems
+Forcing GfxDevice: Null
+GfxDevice: creating device client; kGfxThreadingModeNonThreaded
+NullGfxDevice:
+    Version:  NULL 1.0 [1.0]
+    Renderer: Null Device
+    Vendor:   Unity Technologies
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  5.366 seconds
+- Finished resetting the current domain, in  0.002 seconds
+[Physics::Module] Selected backend.
+[Physics::Module] Name: PhysX
+[Physics::Module] Id: 0xf2b8ea05
+[Physics::Module] SDK Version: 4.1.2
+[Physics::Module] Integration Version: 1.0.0
+[Physics::Module] Threading Mode: Multi-Threaded
+ERROR: Shader Hidden/Universal Render Pipeline/LutBuilderLdr shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+ERROR: Shader Hidden/Universal Render Pipeline/CameraMotionBlur shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+WARNING: Shader Unsupported: 'Hidden/Universal Render Pipeline/FallbackError' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+ERROR: Shader Hidden/Universal Render Pipeline/FallbackError shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+WARNING: Shader Unsupported: 'Hidden/Universal Render Pipeline/FallbackError' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+WARNING: Shader Unsupported: 'Hidden/Universal Render Pipeline/ClusterDeferred' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+WARNING: Shader Unsupported: 'Hidden/Universal Render Pipeline/ClusterDeferred' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+ERROR: Shader Hidden/TerrainEngine/Details/UniversalPipeline/BillboardWavingDoublePass shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+ERROR: Shader Hidden/Universal Render Pipeline/TemporalAA shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+ERROR: Shader Hidden/App UI/LinearProgress shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+ERROR: Shader Hidden/Universal Render Pipeline/Scaling Setup shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+ERROR: Shader Hidden/CoreSRP/CoreCopy shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+ERROR: Shader Hidden/App UI/Mask shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+ERROR: Shader Hidden/App UI/CircularProgress shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+WARNING: Shader Unsupported: 'Hidden/Universal Render Pipeline/StencilDeferred' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+WARNING: Shader Unsupported: 'Hidden/Universal Render Pipeline/StencilDeferred' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+ERROR: Shader Hidden/App UI/CanvasBackground shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+ERROR: Shader Hidden/TerrainEngine/Details/UniversalPipeline/Vertexlit shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+ERROR: Shader Hidden/Universal Render Pipeline/GaussianDepthOfField shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+ERROR: Shader Hidden/Universal Render Pipeline/Debug/DebugReplacement shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+ERROR: Shader Hidden/Universal Render Pipeline/StencilDitherMaskSeed shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+ERROR: Shader Hidden/App UI/Box shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+ERROR: Shader Hidden/Universal Render Pipeline/LutBuilderHdr shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+ERROR: Shader Hidden/Universal Render Pipeline/Sampling shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+ERROR: Shader Hidden/Universal Render Pipeline/LensFlareDataDriven shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+ERROR: Shader Hidden/App UI/SVSquare shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+ERROR: Shader Hidden/Universal Render Pipeline/CameraMotionVectors shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+ERROR: Shader Hidden/App UI/ColorSwatch shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+ERROR: Shader Hidden/Universal Render Pipeline/UberPost shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+ERROR: Shader Hidden/Universal Render Pipeline/Bloom shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+ERROR: Shader Hidden/Universal Render Pipeline/BokehDepthOfField shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+ERROR: Shader Hidden/Universal Render Pipeline/FinalPost shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+ERROR: Shader Hidden/Universal Render Pipeline/CopyDepth shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+ERROR: Shader Hidden/Universal Render Pipeline/SubpixelMorphologicalAntialiasing shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+ERROR: Shader Hidden/Universal Render Pipeline/ScreenSpaceAmbientOcclusion shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+ERROR: Shader Hidden/Universal Render Pipeline/Stop NaN shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+ERROR: Shader Hidden/App UI/ColorWheel shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+ERROR: Shader Hidden/Universal/HDRDebugView shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+ERROR: Shader Hidden/Universal Render Pipeline/LensFlareScreenSpace shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+ERROR: Shader Hidden/TerrainEngine/Details/UniversalPipeline/WavingDoublePass shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+ERROR: Shader Hidden/Universal Render Pipeline/PaniniProjection shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+ERROR: Shader Sprites/Default shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+Microsoft Media Foundation video decoding to texture disabled: graphics device is Null, only Direct3D 11 and Direct3D 12 (only on desktop) are supported for hardware-accelerated video decoding.
+<b>[App UI]</b> Unable to find an AppUISettings instance, creating a default one...
+ERROR: Shader Sprites/Mask shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+WARNING: Shader Unsupported: 'Hidden/Universal Render Pipeline/Terrain/Lit (Add Pass)' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+ERROR: Shader Hidden/Universal Render Pipeline/Terrain/Lit (Add Pass) shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+WARNING: Shader Unsupported: 'Hidden/Universal Render Pipeline/Terrain/Lit (Add Pass)' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+WARNING: Shader Unsupported: 'Hidden/Universal Render Pipeline/Terrain/Lit (Base Pass)' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+ERROR: Shader Hidden/Universal Render Pipeline/Terrain/Lit (Base Pass) shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+WARNING: Shader Unsupported: 'Hidden/Universal Render Pipeline/Terrain/Lit (Base Pass)' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+ERROR: Shader Hidden/Universal Render Pipeline/Terrain/Lit (Basemap Gen) shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+WARNING: Shader Unsupported: 'Universal Render Pipeline/Terrain/Lit' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+ERROR: Shader Universal Render Pipeline/Terrain/Lit shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+WARNING: Shader Unsupported: 'Universal Render Pipeline/Terrain/Lit' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+WARNING: Shader Unsupported: 'Universal Render Pipeline/Lit' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+ERROR: Shader Universal Render Pipeline/Lit shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+WARNING: Shader Unsupported: 'Universal Render Pipeline/Lit' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+UnloadTime: 0.456000 ms
+Registered Communicator in Agent.
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 23
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 22
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 21
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 20
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 19
+Reward this round: 1,179987
+reset
+Breakable destroyed. Remaining: 40
+Breakable destroyed. Remaining: 39
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 38
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 37
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 36
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 35
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 34
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 33
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 32
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 31
+Breakable destroyed. Remaining: 30
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 29
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 28
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 27
+Breakable destroyed. Remaining: 26
+Reward this round: 6,864993
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 19
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 18
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 17
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 16
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 15
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 14
+Breakable destroyed. Remaining: 13
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 12
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 11
+Breakable destroyed. Remaining: 10
+Reward this round: 4,82999
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 32
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 31
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 30
+Reward this round: 0,4350002
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 30
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 29
+Reward this round: -0,2699999
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 23
+Breakable destroyed. Remaining: 22
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 21
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 20
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 19
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 18
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 17
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 16
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 15
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 14
+Breakable destroyed. Remaining: 13
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 12
+Breakable destroyed. Remaining: 11
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 10
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 9
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 8
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 7
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 6
+Breakable destroyed. Remaining: 5
+Reward this round: 10,63499
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 29
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 28
+Reward this round: -0,155
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 26
+Reward this round: -0,86
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 24
+Breakable destroyed. Remaining: 23
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 22
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 21
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 20
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 19
+Reward this round: 2,344997
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 30
+Poprawne postawienie bomby.
+Reward this round: -0,8049999
+reset
+Breakable destroyed. Remaining: 26
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 25
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 24
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 23
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 22
+Reward this round: 0,7099924
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 30
+Breakable destroyed. Remaining: 29
+Reward this round: -0,5299997
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 26
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 25
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 24
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 23
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 22
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 21
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 20
+Reward this round: 2,624986
+reset
+Breakable destroyed. Remaining: 28
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 27
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 26
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 25
+Breakable destroyed. Remaining: 24
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 23
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 22
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 21
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 20
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 19
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 18
+Breakable destroyed. Remaining: 17
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 16
+Reward this round: 6,139992
+reset
+Breakable destroyed. Remaining: 36
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 35
+Reward this round: -0,9949999
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 22
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 21
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 20
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 19
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 18
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 17
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 16
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 15
+Breakable destroyed. Remaining: 14
+Breakable destroyed. Remaining: 13
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 12
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 11
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 10
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 9
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 8
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 7
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 6
+Reward this round: 9,119983
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 26
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 25
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 24
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 23
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 22
+Breakable destroyed. Remaining: 21
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 20
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 19
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 18
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 17
+Reward this round: 4,964992
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 34
+Reward this round: -0,9849999
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 23
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 22
+Breakable destroyed. Remaining: 21
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 20
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 19
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 18
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 17
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 16
+Breakable destroyed. Remaining: 15
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 14
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 13
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 12
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 11
+Breakable destroyed. Remaining: 10
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 9
+Breakable destroyed. Remaining: 8
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 7
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 6
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 5
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 4
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 3
+Reward this round: 12,06499
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 31
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 30
+Reward this round: -0,1799999
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 26
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 25
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 24
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 23
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 22
+Reward this round: 1,734997
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 31
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 30
+Reward this round: -0,175
+reset
+Reward this round: -1,515
+reset
+Reward this round: 0
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 27
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 26
+Reward this round: -0,1999998
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 29
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 28
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 27
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 26
+Reward this round: 1,16
+reset
+Poprawne postawienie bomby.
+Reward this round: -1,445
+reset
+Breakable destroyed. Remaining: 23
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 22
+Breakable destroyed. Remaining: 21
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 20
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 19
+Breakable destroyed. Remaining: 18
+Reward this round: 1,64
+reset
+Breakable destroyed. Remaining: 29
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 28
+Breakable destroyed. Remaining: 27
+Breakable destroyed. Remaining: 26
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 25
+Breakable destroyed. Remaining: 24
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 23
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 22
+Breakable destroyed. Remaining: 21
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 20
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 19
+Breakable destroyed. Remaining: 18
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 17
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 16
+Breakable destroyed. Remaining: 15
+Poprawne postawienie bomby.
+Reward this round: 7,109987
+reset
+Breakable destroyed. Remaining: 27
+Poprawne postawienie bomby.
+Reward this round: -1,695
+reset
+Breakable destroyed. Remaining: 33
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 32
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 31
+Breakable destroyed. Remaining: 30
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 29
+Breakable destroyed. Remaining: 28
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 27
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 26
+Breakable destroyed. Remaining: 25
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 24
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 23
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 22
+Reward this round: 5,394994
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 27
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 26
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 25
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 24
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 23
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 22
+Reward this round: 2,164991
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 29
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 28
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 27
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 26
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 25
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 24
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 23
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 22
+Reward this round: 3,729994
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 32
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 31
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 30
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 29
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 28
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 27
+Breakable destroyed. Remaining: 26
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 25
+Reward this round: 3,48499
+reset
+Breakable destroyed. Remaining: 28
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 27
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 26
+Breakable destroyed. Remaining: 25
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 24
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 23
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 22
+Breakable destroyed. Remaining: 21
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 20
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 19
+Breakable destroyed. Remaining: 18
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 17
+Breakable destroyed. Remaining: 16
+Breakable destroyed. Remaining: 15
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 14
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 13
+Reward this round: 8,029993
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 23
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 22
+Breakable destroyed. Remaining: 21
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 20
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 19
+Breakable destroyed. Remaining: 18
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 17
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 16
+Breakable destroyed. Remaining: 15
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 14
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 13
+Breakable destroyed. Remaining: 12
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 11
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 10
+Reward this round: 7,084986
+reset
+Breakable destroyed. Remaining: 25
+Reward this round: -1,595
+reset
+Reward this round: -1,895
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 27
+Breakable destroyed. Remaining: 26
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 25
+Breakable destroyed. Remaining: 24
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 23
+Reward this round: 1,259989
+reset
+Breakable destroyed. Remaining: 27
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 26
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 25
+Reward this round: -0,2499998
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 30
+Reward this round: -0,87
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 26
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 25
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 24
+Breakable destroyed. Remaining: 23
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 22
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 21
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 20
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 19
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 18
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 17
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 16
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 15
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 14
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 13
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 12
+Breakable destroyed. Remaining: 11
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 10
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 9
+Reward this round: 10,24499
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 31
+Breakable destroyed. Remaining: 30
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 29
+Breakable destroyed. Remaining: 28
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 27
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 26
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 25
+Reward this round: 3,054997
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 26
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 25
+Reward this round: -0,1899998
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 32
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 31
+Breakable destroyed. Remaining: 30
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 29
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 28
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 27
+Breakable destroyed. Remaining: 26
+Reward this round: 2,984996
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 34
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 33
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 32
+Breakable destroyed. Remaining: 31
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 30
+Reward this round: 1,675
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 35
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 34
+Breakable destroyed. Remaining: 33
+Breakable destroyed. Remaining: 32
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 31
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 30
+Reward this round: 2,014991
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 33
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 32
+Breakable destroyed. Remaining: 31
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 30
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 29
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 28
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 27
+Reward this round: 2,974994
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 27
+Reward this round: -0,9
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 30
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 29
+Breakable destroyed. Remaining: 28
+Breakable destroyed. Remaining: 27
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 26
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 25
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 24
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 23
+Breakable destroyed. Remaining: 22
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 21
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 20
+Breakable destroyed. Remaining: 19
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 18
+Reward this round: 6,864994
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 20
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 19
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 18
+Reward this round: 0,4350003
+reset
+Reward this round: -1,515
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 33
+Breakable destroyed. Remaining: 32
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 31
+Breakable destroyed. Remaining: 30
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 29
+Reward this round: 1,264992
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 33
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 32
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 31
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 30
+Breakable destroyed. Remaining: 29
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 28
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 27
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 26
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 25
+Reward this round: 4,294991
+reset
+Breakable destroyed. Remaining: 28
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 27
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 26
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 25
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 24
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 23
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 22
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 21
+Breakable destroyed. Remaining: 20
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 19
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 18
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 17
+Breakable destroyed. Remaining: 16
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 15
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 14
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 13
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 12
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 11
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 10
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 9
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 8
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 7
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 6
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 5
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 4
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 3
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 2
+Reward this round: 15,51002
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 32
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 31
+Reward this round: -0,165
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 32
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 31
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 30
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 29
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 28
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 27
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 26
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 25
+Breakable destroyed. Remaining: 24
+Breakable destroyed. Remaining: 23
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 22
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 21
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 20
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 19
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 18
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 17
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 16
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 15
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 14
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 13
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 12
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 11
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 10
+Breakable destroyed. Remaining: 9
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 8
+Reward this round: 14,82999
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 21
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 20
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 19
+Breakable destroyed. Remaining: 18
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 17
+Reward this round: 1,194986
+reset
+Breakable destroyed. Remaining: 28
+Breakable destroyed. Remaining: 27
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 26
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 25
+Breakable destroyed. Remaining: 24
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 23
+Breakable destroyed. Remaining: 22
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 21
+Breakable destroyed. Remaining: 20
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 19
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 18
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 17
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 16
+Reward this round: 5,639996
+reset
+Breakable destroyed. Remaining: 31
+Breakable destroyed. Remaining: 30
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 29
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 28
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 27
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 26
+Breakable destroyed. Remaining: 25
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 24
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 23
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 22
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 21
+Reward this round: 3,979987
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 27
+Breakable destroyed. Remaining: 26
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 25
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 24
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 23
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 22
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 21
+Breakable destroyed. Remaining: 20
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 19
+Breakable destroyed. Remaining: 18
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 17
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 16
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 15
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 14
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 13
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 12
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 11
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 10
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 9
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 8
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 7
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 6
+Breakable destroyed. Remaining: 5
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 4
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 3
+Reward this round: 14,41001
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 24
+Breakable destroyed. Remaining: 23
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 22
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 21
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 20
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 19
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 18
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 17
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 16
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 15
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 14
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 13
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 12
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 11
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 10
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 9
+Reward this round: 8,824986
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 19
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 18
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 17
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 16
+Breakable destroyed. Remaining: 15
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 14
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 13
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 12
+Breakable destroyed. Remaining: 11
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 10
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 9
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 8
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 7
+Reward this round: 6,939992
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 25
+Breakable destroyed. Remaining: 24
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 23
+Reward this round: 0,4400001
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 27
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 26
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 25
+Breakable destroyed. Remaining: 24
+Breakable destroyed. Remaining: 23
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 22
+Breakable destroyed. Remaining: 21
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 20
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 19
+Reward this round: 4,024992
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 31
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 30
+Reward this round: -0,1899999
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 32
+Breakable destroyed. Remaining: 31
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 30
+Breakable destroyed. Remaining: 29
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 28
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 27
+Breakable destroyed. Remaining: 26
+Reward this round: 2,264981
+reset
+Breakable destroyed. Remaining: 39
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 38
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 37
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 36
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 35
+Reward this round: 1,035
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 31
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 30
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 29
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 28
+Breakable destroyed. Remaining: 27
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 26
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 25
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 24
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 23
+Breakable destroyed. Remaining: 22
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 21
+Reward this round: 5,334988
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 30
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 29
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 28
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 27
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 26
+Breakable destroyed. Remaining: 25
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 24
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 23
+Breakable destroyed. Remaining: 22
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 21
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 20
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 19
+Breakable destroyed. Remaining: 18
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 17
+Breakable destroyed. Remaining: 16
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 15
+Reward this round: 8,889993
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 34
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 33
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 32
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 31
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 30
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 29
+Breakable destroyed. Remaining: 28
+Breakable destroyed. Remaining: 27
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 26
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 25
+Reward this round: 4,994998
+reset
+Breakable destroyed. Remaining: 31
+Breakable destroyed. Remaining: 30
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 29
+Breakable destroyed. Remaining: 28
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 27
+Breakable destroyed. Remaining: 26
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 25
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 24
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 23
+Breakable destroyed. Remaining: 22
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 21
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 20
+Breakable destroyed. Remaining: 19
+Reward this round: 5,209987
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 29
+Breakable destroyed. Remaining: 28
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 27
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 26
+Breakable destroyed. Remaining: 25
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 24
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 23
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 22
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 21
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 20
+Breakable destroyed. Remaining: 19
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 18
+Breakable destroyed. Remaining: 17
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 16
+Reward this round: 7,674995
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 28
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 27
+Breakable destroyed. Remaining: 26
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 25
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 24
+Breakable destroyed. Remaining: 23
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 22
+Breakable destroyed. Remaining: 21
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 20
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 19
+Breakable destroyed. Remaining: 18
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 17
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 16
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 15
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 14
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 13
+Breakable destroyed. Remaining: 12
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 11
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 10
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 9
+Reward this round: 10,96998
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 30
+Breakable destroyed. Remaining: 29
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 28
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 27
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 26
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 25
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 24
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 23
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 22
+Breakable destroyed. Remaining: 21
+Breakable destroyed. Remaining: 20
+Reward this round: 5,669995
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 28
+Reward this round: -0,895
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 30
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 29
+Breakable destroyed. Remaining: 28
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 27
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 26
+Breakable destroyed. Remaining: 25
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 24
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 23
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 22
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 21
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 20
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 19
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 18
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 17
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 16
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 15
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 14
+Breakable destroyed. Remaining: 13
+Reward this round: 9,72998
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 25
+Breakable destroyed. Remaining: 24
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 23
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 22
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 21
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 20
+Breakable destroyed. Remaining: 19
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 18
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 17
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 16
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 15
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 14
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 13
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 12
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 11
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 10
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 9
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 8
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 7
+Breakable destroyed. Remaining: 6
+Reward this round: 11,48999
+reset
+Breakable destroyed. Remaining: 30
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 29
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 28
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 27
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 26
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 25
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 24
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 23
+Breakable destroyed. Remaining: 22
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 21
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 20
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 19
+Breakable destroyed. Remaining: 18
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 17
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 16
+Breakable destroyed. Remaining: 15
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 14
+Breakable destroyed. Remaining: 13
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 12
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 11
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 10
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 9
+Breakable destroyed. Remaining: 8
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 7
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 6
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 5
+Breakable destroyed. Remaining: 4
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 3
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 2
+Reward this round: 16,42005
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 18
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 17
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 16
+Breakable destroyed. Remaining: 15
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 14
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 13
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 12
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 11
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 10
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 9
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 8
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 7
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 6
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 5
+Reward this round: 6,80997
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 24
+Breakable destroyed. Remaining: 23
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 22
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 21
+Reward this round: 1,075
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 31
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 30
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 29
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 28
+Breakable destroyed. Remaining: 27
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 26
+Breakable destroyed. Remaining: 25
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 24
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 23
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 22
+Breakable destroyed. Remaining: 21
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 20
+Breakable destroyed. Remaining: 19
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 18
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 17
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 16
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 15
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 14
+Reward this round: 9,659984
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 24
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 23
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 22
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 21
+Breakable destroyed. Remaining: 20
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 19
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 18
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 17
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 16
+Reward this round: 3,624985
+reset
+Breakable destroyed. Remaining: 19
+Breakable destroyed. Remaining: 18
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 17
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 16
+Breakable destroyed. Remaining: 15
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 14
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 13
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 12
+Reward this round: 2,464998
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 31
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 30
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 29
+Breakable destroyed. Remaining: 28
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 27
+Breakable destroyed. Remaining: 26
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 25
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 24
+Reward this round: 3,734999
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 29
+Reward this round: -0,84
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 28
+Reward this round: -0,9299999
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 23
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 22
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 21
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 20
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 19
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 18
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 17
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 16
+Reward this round: 3,779994
+reset
+Reward this round: -1,53
+reset
+Reward this round: 0
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 21
+Breakable destroyed. Remaining: 20
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 19
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 18
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 17
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 16
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 15
+Reward this round: 3,184999
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 28
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 27
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 26
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 25
+Breakable destroyed. Remaining: 24
+Reward this round: 1,714998
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 28
+Reward this round: -0,945
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 27
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 26
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 25
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 24
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 23
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 22
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 21
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 20
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 19
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 18
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 17
+Breakable destroyed. Remaining: 16
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 15
+Reward this round: 6,784985
+reset
+Breakable destroyed. Remaining: 27
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 26
+Reward this round: -0,9
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 24
+Breakable destroyed. Remaining: 23
+Breakable destroyed. Remaining: 22
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 21
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 20
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 19
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 18
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 17
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 16
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 15
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 14
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 13
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 12
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 11
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 10
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 9
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 8
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 7
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 6
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 5
+Reward this round: 10,66997
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 30
+Breakable destroyed. Remaining: 29
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 28
+Breakable destroyed. Remaining: 27
+Breakable destroyed. Remaining: 26
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 25
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 24
+Reward this round: 2,989999
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 26
+Breakable destroyed. Remaining: 25
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 24
+Reward this round: 0,2800002
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 35
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 34
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 33
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 32
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 31
+Breakable destroyed. Remaining: 30
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 29
+Breakable destroyed. Remaining: 28
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 27
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 26
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 25
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 24
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 23
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 22
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 21
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 20
+Reward this round: 8,664989
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 21
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 20
+Breakable destroyed. Remaining: 19
+Breakable destroyed. Remaining: 18
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 17
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 16
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 15
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 14
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 13
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 12
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 11
+Breakable destroyed. Remaining: 10
+Breakable destroyed. Remaining: 9
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 8
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 7
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 6
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 5
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 4
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 3
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 2
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 1
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 0
+All breakables destroyed! Awarding win...
+Reward this round: 13,78998
+reset
+Reward this round: -1,815
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 22
+Breakable destroyed. Remaining: 21
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 20
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 19
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 18
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 17
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 16
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 15
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 14
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 13
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 12
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 11
+Breakable destroyed. Remaining: 10
+Reward this round: 7,039994
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 30
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 29
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 28
+Breakable destroyed. Remaining: 27
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 26
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 25
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 24
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 23
+Breakable destroyed. Remaining: 22
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 21
+Breakable destroyed. Remaining: 20
+Breakable destroyed. Remaining: 19
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 18
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 17
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 16
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 15
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 14
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 13
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 12
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 11
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 10
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 9
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 8
+Reward this round: 13,36499
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 31
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 30
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 29
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 28
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 27
+Breakable destroyed. Remaining: 26
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 25
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 24
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 23
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 22
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 21
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 20
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 19
+Reward this round: 7,124992
+reset
+Breakable destroyed. Remaining: 29
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 28
+Reward this round: -0,945
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 28
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 27
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 26
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 25
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 24
+Breakable destroyed. Remaining: 23
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 22
+Breakable destroyed. Remaining: 21
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 20
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 19
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 18
+Breakable destroyed. Remaining: 17
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 16
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 15
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 14
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 13
+Breakable destroyed. Remaining: 12
+Reward this round: 8,74998
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 27
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 26
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 25
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 24
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 23
+Breakable destroyed. Remaining: 22
+Breakable destroyed. Remaining: 21
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 20
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 19
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 18
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 17
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 16
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 15
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 14
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 13
+Reward this round: 8,179992
+reset
+Breakable destroyed. Remaining: 26
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 25
+Breakable destroyed. Remaining: 24
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 23
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 22
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 21
+Breakable destroyed. Remaining: 20
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 19
+Breakable destroyed. Remaining: 18
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 17
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 16
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 15
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 14
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 13
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 12
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 11
+Reward this round: 8,074988
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 30
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 29
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 28
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 27
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 26
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 25
+Breakable destroyed. Remaining: 24
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 23
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 22
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 21
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 20
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 19
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 18
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 17
+Breakable destroyed. Remaining: 16
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 15
+Breakable destroyed. Remaining: 14
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 13
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 12
+Breakable destroyed. Remaining: 11
+Breakable destroyed. Remaining: 10
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 9
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 8
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 7
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 6
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 5
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 4
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 3
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 2
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 1
+Reward this round: 17,71004
+reset
+Breakable destroyed. Remaining: 22
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 21
+Breakable destroyed. Remaining: 20
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 19
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 18
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 17
+Breakable destroyed. Remaining: 16
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 15
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 14
+Breakable destroyed. Remaining: 13
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 12
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 11
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 10
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 9
+Breakable destroyed. Remaining: 8
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 7
+Reward this round: 7,829983
+reset
+Breakable destroyed. Remaining: 34
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 33
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 32
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 31
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 30
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 29
+Breakable destroyed. Remaining: 28
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 27
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 26
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 25
+Breakable destroyed. Remaining: 24
+Breakable destroyed. Remaining: 23
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 22
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 21
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 20
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 19
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 18
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 17
+Breakable destroyed. Remaining: 16
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 15
+Breakable destroyed. Remaining: 14
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 13
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 12
+Breakable destroyed. Remaining: 11
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 10
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 9
+Breakable destroyed. Remaining: 8
+Breakable destroyed. Remaining: 7
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 6
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 5
+Breakable destroyed. Remaining: 4
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 3
+Breakable destroyed. Remaining: 2
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 1
+Reward this round: 18,76022
+reset
+Breakable destroyed. Remaining: 28
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 27
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 26
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 25
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 24
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 23
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 22
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 21
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 20
+Reward this round: 3,839995
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 23
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 22
+Breakable destroyed. Remaining: 21
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 20
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 19
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 18
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 17
+Breakable destroyed. Remaining: 16
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 15
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 14
+Breakable destroyed. Remaining: 13
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 12
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 11
+Breakable destroyed. Remaining: 10
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 9
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 8
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 7
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 6
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 5
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 4
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 3
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 2
+Breakable destroyed. Remaining: 1
+Reward this round: 11,49995
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 31
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 30
+Breakable destroyed. Remaining: 29
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 28
+Breakable destroyed. Remaining: 27
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 26
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 25
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 24
+Reward this round: 3,729998
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 31
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 30
+Reward this round: -0,5599995
+reset
+Breakable destroyed. Remaining: 30
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 29
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 28
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 27
+Breakable destroyed. Remaining: 26
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 25
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 24
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 23
+Breakable destroyed. Remaining: 22
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 21
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 20
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 19
+Reward this round: 5,709994
+reset
+Reward this round: -1,545
+reset
+Reward this round: 0
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 31
+Breakable destroyed. Remaining: 30
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 29
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 28
+Reward this round: 1,055
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 22
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 21
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 20
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 19
+Breakable destroyed. Remaining: 18
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 17
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 16
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 15
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 14
+Breakable destroyed. Remaining: 13
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 12
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 11
+Reward this round: 6,224991
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 34
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 33
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 32
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 31
+Poprawne postawienie bomby.
+Reward this round: 1,104998
+reset
+Breakable destroyed. Remaining: 33
+Breakable destroyed. Remaining: 32
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 31
+Breakable destroyed. Remaining: 30
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 29
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 28
+Breakable destroyed. Remaining: 27
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 26
+Breakable destroyed. Remaining: 25
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 24
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 23
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 22
+Breakable destroyed. Remaining: 21
+Breakable destroyed. Remaining: 20
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 19
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 18
+Breakable destroyed. Remaining: 17
+Breakable destroyed. Remaining: 16
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 15
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 14
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 13
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 12
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 11
+Breakable destroyed. Remaining: 10
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 9
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 8
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 7
+Breakable destroyed. Remaining: 6
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 5
+Breakable destroyed. Remaining: 4
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 3
+Reward this round: 16,42513
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 30
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 29
+Breakable destroyed. Remaining: 28
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 27
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 26
+Breakable destroyed. Remaining: 25
+Breakable destroyed. Remaining: 24
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 23
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 22
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 21
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 20
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 19
+Reward this round: 6,139989
+reset
+Breakable destroyed. Remaining: 28
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 27
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 26
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 25
+Breakable destroyed. Remaining: 24
+Breakable destroyed. Remaining: 23
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 22
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 21
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 20
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 19
+Breakable destroyed. Remaining: 18
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 17
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 16
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 15
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 14
+Reward this round: 7,694995
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 34
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 33
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 32
+Breakable destroyed. Remaining: 31
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 30
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 29
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 28
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 27
+Breakable destroyed. Remaining: 26
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 25
+Breakable destroyed. Remaining: 24
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 23
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 22
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 21
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 20
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 19
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 18
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 17
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 16
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 15
+Breakable destroyed. Remaining: 14
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 13
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 12
+Reward this round: 13,19499
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 34
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 33
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 32
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 31
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 30
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 29
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 28
+Breakable destroyed. Remaining: 27
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 26
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 25
+Reward this round: 5,149996
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 33
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 32
+Reward this round: -0,135
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 26
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 25
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 24
+Breakable destroyed. Remaining: 23
+Reward this round: 0,6649907
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 34
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 33
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 32
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 31
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 30
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 29
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 28
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 27
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 26
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 25
+Breakable destroyed. Remaining: 24
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 23
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 22
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 21
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 20
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 19
+Breakable destroyed. Remaining: 18
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 17
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 16
+Breakable destroyed. Remaining: 15
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 14
+Reward this round: 12,02999
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 28
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 27
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 26
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 25
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 24
+Breakable destroyed. Remaining: 23
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 22
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 21
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 20
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 19
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 18
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 17
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 16
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 15
+Breakable destroyed. Remaining: 14
+Reward this round: 8,299995
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 21
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 20
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 19
+Breakable destroyed. Remaining: 18
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 17
+Breakable destroyed. Remaining: 16
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 15
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 14
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 13
+Breakable destroyed. Remaining: 12
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 11
+Breakable destroyed. Remaining: 10
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 9
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 8
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 7
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 6
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 5
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 4
+Reward this round: 10,21499
+reset
+Breakable destroyed. Remaining: 30
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 29
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 28
+Breakable destroyed. Remaining: 27
+Reward this round: 0,02500045
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 30
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 29
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 28
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 27
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 26
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 25
+Breakable destroyed. Remaining: 24
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 23
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 22
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 21
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 20
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 19
+Breakable destroyed. Remaining: 18
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 17
+Breakable destroyed. Remaining: 16
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 15
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 14
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 13
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 12
+Breakable destroyed. Remaining: 11
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 10
+Reward this round: 12,19499
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 33
+Breakable destroyed. Remaining: 32
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 31
+Breakable destroyed. Remaining: 30
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 29
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 28
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 27
+Reward this round: 3,124999
+reset
+Breakable destroyed. Remaining: 31
+Breakable destroyed. Remaining: 30
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 29
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 28
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 27
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 26
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 25
+Breakable destroyed. Remaining: 24
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 23
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 22
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 21
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 20
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 19
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 18
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 17
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 16
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 15
+Reward this round: 8,204988
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 29
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 28
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 27
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 26
+Breakable destroyed. Remaining: 25
+Breakable destroyed. Remaining: 24
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 23
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 22
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 21
+Breakable destroyed. Remaining: 20
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 19
+Breakable destroyed. Remaining: 18
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 17
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 16
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 15
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 14
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 13
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 12
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 11
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 10
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 9
+Breakable destroyed. Remaining: 8
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 7
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 6
+Reward this round: 14,03999
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 34
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 33
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 32
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 31
+Breakable destroyed. Remaining: 30
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 29
+Breakable destroyed. Remaining: 28
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 27
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 26
+Breakable destroyed. Remaining: 25
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 24
+Reward this round: 5,514991
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 30
+Breakable destroyed. Remaining: 29
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 28
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 27
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 26
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 25
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 24
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 23
+Reward this round: 3,784996
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 35
+Breakable destroyed. Remaining: 34
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 33
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 32
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 31
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 30
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 29
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 28
+Breakable destroyed. Remaining: 27
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 26
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 25
+Breakable destroyed. Remaining: 24
+Breakable destroyed. Remaining: 23
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 22
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 21
+Reward this round: 8,029988
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 21
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 20
+Breakable destroyed. Remaining: 19
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 18
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 17
+Breakable destroyed. Remaining: 16
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 15
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 14
+Breakable destroyed. Remaining: 13
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 12
+Reward this round: 5,009996
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 27
+Breakable destroyed. Remaining: 26
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 25
+Breakable destroyed. Remaining: 24
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 23
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 22
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 21
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 20
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 19
+Breakable destroyed. Remaining: 18
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 17
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 16
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 15
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 14
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 13
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 12
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 11
+Reward this round: 9,769996
+reset
+Breakable destroyed. Remaining: 29
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 28
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 27
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 26
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 25
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 24
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 23
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 22
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 21
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 20
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 19
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 18
+Breakable destroyed. Remaining: 17
+Reward this round: 6,474995
+reset
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 29
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 28
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 27
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 26
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 25
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 24
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 23
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 22
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 21
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 20
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 19
+Breakable destroyed. Remaining: 18
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 17
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 16
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 15
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 14
+Breakable destroyed. Remaining: 13
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 12
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 11
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 10
+Breakable destroyed. Remaining: 9
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 8
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 7
+Poprawne postawienie bomby.
+Breakable destroyed. Remaining: 6
+Breakable destroyed. Remaining: 5
+[Physics::Module] Cleanup current backend.
+[Physics::Module] Id: 0xf2b8ea05
+Input System module state changed to: ShutdownInProgress.
+Input System polling thread exited.
+Input System module state changed to: Shutdown.

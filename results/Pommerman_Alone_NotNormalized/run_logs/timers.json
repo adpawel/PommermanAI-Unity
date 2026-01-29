@@ -1,0 +1,47 @@
+{
+    "name": "root",
+    "metadata": {
+        "timer_format_version": "0.1.0",
+        "start_time_seconds": "1767260012",
+        "python_version": "3.9.25 (main, Nov  3 2025, 22:44:01) [MSC v.1929 64 bit (AMD64)]",
+        "command_line_arguments": "C:\\Users\\adpaw\\miniconda3\\envs\\mlagents-env\\Scripts\\mlagents-learn pommerman_config.yaml --run-id=Pommerman_Alone_NotNormalized --time-scale=2.0 --resume",
+        "mlagents_version": "0.30.0",
+        "mlagents_envs_version": "0.30.0",
+        "communication_protocol_version": "1.5.0",
+        "pytorch_version": "1.13.1+cpu",
+        "numpy_version": "1.21.2",
+        "end_time_seconds": "1767260024"
+    },
+    "total": 12.5683931,
+    "count": 1,
+    "self": 0.011953500000000616,
+    "children": {
+        "run_training.setup": {
+            "total": 0.15331779999999995,
+            "count": 1,
+            "self": 0.15331779999999995
+        },
+        "TrainerController.start_learning": {
+            "total": 12.4031218,
+            "count": 1,
+            "self": 0.0011615000000002595,
+            "children": {
+                "TrainerController._reset_env": {
+                    "total": 12.401919199999998,
+                    "count": 1,
+                    "self": 12.401919199999998
+                },
+                "trainer_threads": {
+                    "total": 3.4000000006528808e-06,
+                    "count": 1,
+                    "self": 3.4000000006528808e-06
+                },
+                "TrainerController._save_models": {
+                    "total": 3.770000000002938e-05,
+                    "count": 1,
+                    "self": 3.770000000002938e-05
+                }
+            }
+        }
+    }
+}

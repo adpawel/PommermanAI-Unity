@@ -1,0 +1,47 @@
+{
+    "PommermanBot": {
+        "checkpoints": [
+            {
+                "steps": 184628,
+                "file_path": "results\\Pommerman_New_IL\\PommermanBot\\PommermanBot-184628.onnx",
+                "reward": 0.6572566637934177,
+                "creation_time": 1767293936.5661488,
+                "auxillary_file_paths": [
+                    "results\\Pommerman_New_IL\\PommermanBot\\PommermanBot-184628.pt"
+                ]
+            },
+            {
+                "steps": 913703,
+                "file_path": "results\\Pommerman_New_IL\\PommermanBot\\PommermanBot-913703.onnx",
+                "reward": 0.05259999670088291,
+                "creation_time": 1767294054.0470645,
+                "auxillary_file_paths": [
+                    "results\\Pommerman_New_IL\\PommermanBot\\PommermanBot-913703.pt"
+                ]
+            },
+            {
+                "steps": 913156,
+                "file_path": "results\\Pommerman_New_IL\\PommermanBot\\PommermanBot-913156.onnx",
+                "reward": null,
+                "creation_time": 1767294195.7505124,
+                "auxillary_file_paths": [
+                    "results\\Pommerman_New_IL\\PommermanBot\\PommermanBot-913156.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 913156,
+            "file_path": "results\\Pommerman_New_IL\\PommermanBot.onnx",
+            "reward": null,
+            "creation_time": 1767294195.7505124,
+            "auxillary_file_paths": [
+                "results\\Pommerman_New_IL\\PommermanBot\\PommermanBot-913156.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.30.0",
+        "torch_version": "1.13.1+cpu"
+    }
+}

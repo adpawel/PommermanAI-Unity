@@ -1,0 +1,56 @@
+{
+    "PommermanBot": {
+        "checkpoints": [
+            {
+                "steps": 25396,
+                "file_path": "results\\Pommerman_New_IL2_2ndIL_Inference2\\PommermanBot\\PommermanBot-25396.onnx",
+                "reward": -0.07581483165699023,
+                "creation_time": 1767476792.2724187,
+                "auxillary_file_paths": [
+                    "results\\Pommerman_New_IL2_2ndIL_Inference2\\PommermanBot\\PommermanBot-25396.pt"
+                ]
+            },
+            {
+                "steps": 32956,
+                "file_path": "results\\Pommerman_New_IL2_2ndIL_Inference2\\PommermanBot\\PommermanBot-32956.onnx",
+                "reward": 0.3686785861916308,
+                "creation_time": 1767477240.4152257,
+                "auxillary_file_paths": [
+                    "results\\Pommerman_New_IL2_2ndIL_Inference2\\PommermanBot\\PommermanBot-32956.pt"
+                ]
+            },
+            {
+                "steps": 342269,
+                "file_path": "results\\Pommerman_New_IL2_2ndIL_Inference2\\PommermanBot\\PommermanBot-342269.onnx",
+                "reward": null,
+                "creation_time": 1767479095.9570677,
+                "auxillary_file_paths": [
+                    "results\\Pommerman_New_IL2_2ndIL_Inference2\\PommermanBot\\PommermanBot-342269.pt"
+                ]
+            },
+            {
+                "steps": 369926,
+                "file_path": "results\\Pommerman_New_IL2_2ndIL_Inference2\\PommermanBot\\PommermanBot-369926.onnx",
+                "reward": -0.6776129423730797,
+                "creation_time": 1767479782.977659,
+                "auxillary_file_paths": [
+                    "results\\Pommerman_New_IL2_2ndIL_Inference2\\PommermanBot\\PommermanBot-369926.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 369926,
+            "file_path": "results\\Pommerman_New_IL2_2ndIL_Inference2\\PommermanBot.onnx",
+            "reward": -0.6776129423730797,
+            "creation_time": 1767479782.977659,
+            "auxillary_file_paths": [
+                "results\\Pommerman_New_IL2_2ndIL_Inference2\\PommermanBot\\PommermanBot-369926.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.30.0",
+        "torch_version": "1.13.1+cpu"
+    }
+}

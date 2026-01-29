@@ -11,12 +11,11 @@ Library/
 Temp/
 Obj/
 Build/
-Builds/
 Logs/
 MemoryCaptures/
 UserSettings/
 Recordings/
-Results/
+# Results/
 *.stacktrace
 
 # --- Unity package manager ---
@@ -43,7 +42,8 @@ Packages/packages-lock.json
 # --- Kompilacja i cache ---
 obj/
 bin/
-*.exe
+# *.exe
+*.log
 *.dll
 *.mdb
 *.pdb
@@ -53,11 +53,10 @@ bin/
 *.xcworkspace
 
 # --- ML-Agents ---
-results/
+# results/
 models/
 checkpoints/
 summaries/
-*.onnx
 *.yaml.backup
 *.ckpt
 *.tfevents*
